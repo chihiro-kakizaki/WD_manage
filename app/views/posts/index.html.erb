@@ -1,0 +1,15 @@
+<h2>ログイン後トップページ</h2>
+<p><%= notice %></p>
+
+<% @posts.each do |post| %>
+<table>
+  <tr>
+    <td><%= post.content %></td>
+
+     <td><%= link_to '詳細を確認する', post_path(post.id) %></td>
+     <td><%= link_to '編集する', edit_post_path(post.id) %></td>
+     <td><%= link_to '削除する', post_path(post.id), method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to '新しく投稿する', new_post_path %>
