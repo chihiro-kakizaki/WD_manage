@@ -14,6 +14,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'pry-rails'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'devise'
+gem 'devise-i18n'
+gem 'rexml'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -24,6 +27,7 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'letter_opener_web'
 end
 
 group :test do
