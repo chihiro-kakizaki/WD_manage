@@ -5,4 +5,6 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   mount_uploader :icon, IconUploader
+
+  has_many :posts
 end
