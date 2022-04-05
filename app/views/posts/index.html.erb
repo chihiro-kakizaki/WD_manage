@@ -1,4 +1,8 @@
+<% if current_user.try(:admin?) %>
+  <h1>Blogs_admin</h1>
+<% else %>
 <h2>ログイン後トップページ</h2>
+<% end %>
 
 <% @posts.each do |post| %>
 <table>
