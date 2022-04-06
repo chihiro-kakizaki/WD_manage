@@ -4,7 +4,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    @favorites = current_user.favorite_posts if user_signed_in?
   end
 
   def new
@@ -21,7 +20,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @favorite = current_user.favorites.find_by(post_id: @post.id)
+    @favorite = current_user.favorites.find_by(post_id: @post.id) if user_signed_in?
   end
 
   def edit
