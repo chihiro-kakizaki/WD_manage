@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     member do
       get :favorites
     end
-  end  
+  end
+  post 'favorite/:id', to: 'favorites#create', as: 'create_favorite'
+  delete 'favorite/:id', to: 'favorites#destroy', as: 'destroy_favorite' 
   
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
