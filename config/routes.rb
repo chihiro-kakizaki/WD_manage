@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   end
   post 'favorite/:id', to: 'favorites#create', as: 'create_favorite'
   delete 'favorite/:id', to: 'favorites#destroy', as: 'destroy_favorite' 
+
+  resources :pairs
   
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
