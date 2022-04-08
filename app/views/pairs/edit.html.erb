@@ -8,10 +8,5 @@
     <%= f.select :season, Pair.seasons.keys.to_a, {} %>
   </div>
 
-  <div>
-    <%= f.label :招待する相手のメールアドレス %>
-    <%= text_field_tag :pertner_email, nil, value: @pertner_email %>
-  </div>
-
   <%= f.submit %>
 <% end %>
