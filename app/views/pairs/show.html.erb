@@ -1,0 +1,15 @@
+<% @pair.assigns.each do |pair| %>
+<div>
+  <%= pair.user.name %>
+  <%= pair.user.email %>
+<% end %>
+
+  <div>
+    <%= @pair.weddingday_on %>
+  </div>
+  <div>
+    <%= @pair.season %>
+  </div>
+
+<td><%= link_to '編集', edit_pair_path(@pair.id) %></td>
+
