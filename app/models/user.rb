@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_one :assign, dependent: :destroy
   has_one :pair, foreign_key: :owner_id, dependent: :destroy
 
+  has_many :tasks
+
   #has_one :assign_pair through: :assign
 
   def favorite_find(post_id)

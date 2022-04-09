@@ -1,0 +1,7 @@
+<h1>詳細画面</h1>
+<p>投稿者：<%= @task.user.name %></p>
+<p>タイトル: <%= @task.title %></p>
+<p>詳細: <%= @task.description %></p>
+
+
+<%= link_to '戻る', pair_tasks_path(@pair) %>

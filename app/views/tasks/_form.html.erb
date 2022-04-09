@@ -1,0 +1,31 @@
+<%= form_with(model:[@pair, @task], local: true) do |form| %>
+    <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div>
+    <%= form.label :タイトル %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :詳細 %>
+    <%= form.text_field :description %>
+  </div>
+  <div>
+    <%= form.label :期日目安 %>
+    <%= form.date_select :expired_on %>
+  </div>
+  <div>
+    <%= form.label :進行度 %>
+    <%= form.select :status, Task.statuses.keys.to_a, {} %>
+  </div>
+
+
+  <%= form.submit %>
+<% end %>
