@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @pair = current_user.assign.pair.id if user_signed_in? && current_user.assign
   end
 
   def new
