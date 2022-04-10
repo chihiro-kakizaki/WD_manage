@@ -98,6 +98,8 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.10.2)
       devise (>= 4.8.0)
+    enum_help (0.0.18)
+      activesupport (>= 3.0.0)
     erubi (1.10.0)
     ffi (1.15.5)
     globalid (1.0.0)
@@ -286,6 +288,7 @@ DEPENDENCIES
   carrierwave
   devise
   devise-i18n
+  enum_help
   jbuilder (~> 2.7)
   letter_opener_web
   listen (~> 3.2)

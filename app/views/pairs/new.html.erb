@@ -5,7 +5,7 @@
   </div>
   <div>
     <%= f.label :挙式季節 %>
-    <%= f.select :season, Pair.seasons.keys.to_a, {} %>
+    <%= f.select :season, Pair.seasons_i18n.invert {include_blank: true, selected:1} %>
   </div>
 
   <div>

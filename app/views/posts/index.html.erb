@@ -15,3 +15,14 @@
     <%= link_to "お気に入り一覧", favorites_post_path(current_user.id) %>
     <%= link_to '新しく投稿する', new_post_path %>
   <% end %>
+
+<h1>ポスト検索</h1>
+<%= search_form_for @q, url: search_posts_path do |f| %>
+  <%= f.label :content_cont, 'ポスト名' %>
+  <%= f.search_field :content_cont %>
+  <%= f.label :category, 'カテゴリー' %>
+  <%= f.select :category_eq, Post.categories_i18n.invert.map{|key, value| [key, Post.categories[value]]} %>
+
+  
+  <%= f.submit '検索' %>
+<% end %>
