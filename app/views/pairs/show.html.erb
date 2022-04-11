@@ -2,13 +2,14 @@
 <div>
   <%= pair.user.name %>
   <%= pair.user.email %>
+</div>
 <% end %>
 
   <div>
     <%= @pair.weddingday_on %>
   </div>
   <div>
-    <%= @pair.season %>
+    <%= @pair.season_i18n %>
   </div>
 
 <td><%= link_to '編集', edit_pair_path(@pair.id) %></td>

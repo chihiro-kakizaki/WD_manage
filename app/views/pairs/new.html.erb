@@ -5,9 +5,8 @@
   </div>
   <div>
     <%= f.label :挙式季節 %>
-    <%= f.select :season, Pair.seasons_i18n.invert {include_blank: true, selected:1} %>
+    <%= f.select :season, Pair.seasons_i18n.invert ,{} %>
   </div>
-
   <div>
     <%= f.label :招待する相手のメールアドレス %>
     <%= text_field_tag :pertner_email, nil, value: @pertner_email %>
