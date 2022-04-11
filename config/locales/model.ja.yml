@@ -1,0 +1,22 @@
+ja:  
+  activerecord:
+    models:
+      post: 投稿
+      pair: ペア
+    attributes:
+      post:
+        category: カテゴリー
+      pair:
+        season:挙式季節
+  enums:
+    post:
+      category:
+        dress: 衣装
+        food: 料理・ドリンク
+        flower: 装花
+    pair:
+      season:
+        spring: 春
+        summer: 夏
+        autumn: 秋
+        winter: 冬

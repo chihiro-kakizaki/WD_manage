@@ -1,10 +1,12 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
   before_action :authenticate_user!, only: %i[new edit update destroy]
+  before_action :set_q, only: %i[index search]
 
   def index
     @posts = Post.all
     @pair = current_user.assign.pair.id if user_signed_in? && current_user.assign
+    @categories = Post.categories_i18n
   end
 
   def new
@@ -43,7 +45,10 @@ class PostsController < ApplicationController
   def favorites
     @favorites = current_user.favorite_posts
   end
-  
+
+  def search
+    @results = @q.result#(distinct: true)
+  end
 
 
   private
@@ -53,6 +58,10 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def set_q
+    @q = Post.ransack(params[:q])
   end
 
 end

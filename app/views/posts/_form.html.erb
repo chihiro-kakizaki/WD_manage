@@ -22,7 +22,7 @@
   </div>
   <div class="post_category">
     <%= f.label :category %>
-    <%= f.select :category, Post.categories.keys.to_a, {} %>
+    <%= f.select :category, Post.categories_i18n.invert %>
   </div>
 
   <%= f.submit %>

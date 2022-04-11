@@ -19,6 +19,8 @@ gem 'devise-i18n'
 gem 'rexml'
 gem 'cancancan'
 gem 'rails_admin'
+gem 'ransack'
+gem 'enum_help'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

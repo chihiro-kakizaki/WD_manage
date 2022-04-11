@@ -2,3 +2,5 @@
 <p>名前 : <%= @user.name %></p>
 <p>メールアドレス : <%= @user.email %></p>
 <p>プロフィール画像 : <%= image_tag @user.icon.url if @user.icon && @user.icon.url %></p>
+
+<%= link_to 'プロフィール編集', edit_user_registration_path %>

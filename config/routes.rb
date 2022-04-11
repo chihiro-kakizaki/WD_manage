@@ -5,7 +5,11 @@ Rails.application.routes.draw do
         registrations: 'users/registrations'
 }
   resources :users, only: %i[show]
-  resources :posts
+  resources :posts do
+    collection do
+      get 'search'
+    end
+  end
   resources :favorites, only: %i[create destroy]
   resources :posts, only: %i[index] do
     member do
