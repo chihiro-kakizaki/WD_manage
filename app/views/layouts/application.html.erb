@@ -15,10 +15,12 @@
         <%= link_to '管理者画面', rails_admin_path %>
       <% end %>
       <% if  create_pair %>
+        <%= link_to 'プロフィール', user_path(current_user) %>
         <%= link_to 'タスク一覧画面', pair_path(@pair) %>
         <%= link_to "投稿", posts_path %>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       <% else %>
+        <%= link_to 'プロフィール', user_path(current_user) %>
         <%= link_to 'タスク作成', new_pair_path %>
         <%= link_to "投稿", posts_path %>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
