@@ -3,7 +3,7 @@
     <td><%= post.user.name %></td>
     <td><%= post.content %></td>
     <td><%= post.category_i18n %></td>
-    <td><%= post.user.assign.pair.season_i18n %></td>
+    <td><%= post.user.assign.pair.season_i18n if post.user.assign %></td>
     <% if user_signed_in? && current_user != post.user %>
       <% if current_user.favorite_find(post.id) %>
         <td><%= link_to 'お気に入りからはずす', destroy_favorite_path(post.id), method: :delete, remote: true %></td>

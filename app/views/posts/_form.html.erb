@@ -24,7 +24,9 @@
     <%= f.label :category %>
     <%= f.select :category, Post.categories_i18n.invert %>
   </div>
-
+  <div>
+    <%= f.hidden_field :season, :value => current_user.pair.season if current_user.pair.season? %>
+  </div>
   <%= f.submit %>
 <% end %>
 <%= link_to '投稿一覧画面に戻る', posts_path %>
