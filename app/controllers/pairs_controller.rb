@@ -40,7 +40,7 @@ class PairsController < ApplicationController
   def show
     @tasks = @pair.tasks.all
     unless current_user.assign.pair.id == @pair.id
-      redirect_to root_path
+      redirect_to posts_path
     end
   end
 

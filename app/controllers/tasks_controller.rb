@@ -38,7 +38,7 @@ class TasksController < ApplicationController
   def show
     @pair = Pair.find(params[:pair_id])
     unless current_user.assign.pair.id == @pair.id
-      redirect_to root_path
+      redirect_to pair_path
     end
   end
 
