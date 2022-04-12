@@ -9,7 +9,7 @@ RSpec.describe User, type: :system do
     context "全て正しい値を入力し登録ボタンを押した場合" do 
       it "本人確認のメールが送信される" do 
         visit new_user_registration_path
-        fill_in "user_name", with:'テストユーザー'
+        fill_in "user_name", with:'テスト'
         fill_in "user_email", with: 'aaa@gmail.com'
         fill_in "user_password", with: '123456' 
         fill_in "user_password_confirmation", with: '123456'
@@ -18,7 +18,7 @@ RSpec.describe User, type: :system do
       end
     end
     context "すでに登録されているメールアドレスを入力して登録ボタンを押した場合" do
-      let!(:user){ FactoryBot.create(:testuser)}
+      let!(:user){ FactoryBot.create(:user)}
       it "登録できずエラーが表示される" do
         visit new_user_registration_path
         fill_in "user_name", with:'テストユーザー'
@@ -30,7 +30,7 @@ RSpec.describe User, type: :system do
       end
     end
     context "ログインした状態で新規登録ページにアクセスしようとした場合" do
-      let!(:user){ FactoryBot.create(:testuser)}
+      let!(:user){ FactoryBot.create(:user)}
       it "ポスト一覧ページにリダイレクトされる" do
         visit new_user_session_path
         fill_in "user_email", with: 'test@gmail.com'
@@ -45,7 +45,7 @@ RSpec.describe User, type: :system do
 
   
   describe "ログインログアウト機能" do
-    let!(:user){ FactoryBot.create(:testuser)}
+    let!(:user){ FactoryBot.create(:user)}
     before do
       visit new_user_session_path
     end
@@ -62,7 +62,7 @@ RSpec.describe User, type: :system do
         fill_in "user_email", with: 'aaaa@gmail.com'
         fill_in "user_password", with: ''
         click_on "commit"
-        expect(page).to have_content "Eメールまたはパスワードが違います"
+        expect(page).to have_content "メールアドレスまたはパスワードが違います。"
       end
     end
     context "ログアウトボタンを押した場合" do
@@ -77,15 +77,13 @@ RSpec.describe User, type: :system do
   end
 
   describe "プロフィール機能" do
-    let!(:user){ FactoryBot.create(:testuser)}
+    let!(:user){ FactoryBot.create(:user)}
     before do
-      visit new_user_session_path
-      fill_in "user_email", with: 'test@gmail.com'
-      fill_in "user_password", with: 'testpassword'
-      click_on "commit"
+      sign_in user
     end
     context "プロフィールボタンを押した場合" do
       it "自分のプロフィール詳細画面が表示される" do
+        visit posts_path
         click_on "プロフィール"
         expect(current_path).to eq user_path(user)
         expect(page).to have_content user.name

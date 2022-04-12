@@ -47,6 +47,8 @@ RSpec.configure do |config|
     DatabaseRewinder.clean
   end
 
+  config.include Devise::Test::IntegrationHelpers, type: :system
+  
   # Rails.logger = Logger.new(STDOUT)
   # ActiveRecord::Base.logger = Logger.new(STDOUT)
 

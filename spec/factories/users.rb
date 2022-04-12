@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :testuser, class:User do
+  factory :user, class:User do
     name { 'テストユーザー' }
     email { 'test@gmail.com' }
     password { 'testpassword' }
@@ -10,10 +10,13 @@ FactoryBot.define do
   end
 
   
-  # factory :second_user, class: User do
-  #   name { '一般' }
-  #   email { 'general@gmail.com' }
-  #   password { '1111' }
-  #   admin { 'false' }  
-  # end
+  factory :user_second, class: User do
+    name { 'お試しユーザー' }
+    email { 'second@gmail.com' }
+    password { '123456' }
+    password_confirmation {'123456'}
+    admin { 'false' } 
+
+    after(:create) {|user| user.confirm}
+  end
 end
