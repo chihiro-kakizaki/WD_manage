@@ -16,6 +16,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise'
 gem 'devise-i18n'
+gem 'devise-i18n-views'
 gem 'rexml'
 gem 'cancancan'
 gem 'rails_admin'
@@ -39,6 +40,7 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'webdrivers'
+  gem 'database_rewinder'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
