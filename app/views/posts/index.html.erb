@@ -4,7 +4,7 @@
   <h2>ログイン後トップページ</h2>
 <% end %>
 
-<% @posts.each do |post| %>
+<% @posts.reverse_each do |post| %>
   <div id="post_<%= post.id %>">
     <%= render 'post', post: post %>
   </div>
