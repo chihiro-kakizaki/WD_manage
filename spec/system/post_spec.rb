@@ -59,4 +59,28 @@ RSpec.describe Post, type: :system do
       end
     end
   end
+
+  describe '投稿検索機能' do
+    before do
+      visit posts_path
+    end
+    context 'ポスト名が空欄でカテゴリーのみ指定し検索した場合' do
+      it 'カテゴリーが一致する投稿一覧が検索結果に表示される' do
+        fill_in "q_content_cont", with: ""
+        select '装花', from: "q_category_eq"
+        click_on "commit"
+        expect(page).to have_content "最新の投稿になるはず"
+        expect(page).to have_content "二つ目の投稿"
+      end
+    end
+    context 'ポスト名とカテゴリーを指定し検索した場合' do
+      it '投稿内容、カテゴリーが一致する投稿一覧が検索結果に表示される' do
+        fill_in "q_content_cont", with: "今日は"
+        select '衣装', from: "q_category_eq"
+        click_on "commit"
+        expect(page).to have_content "今日は晴れ"
+        expect(page).to have_content "衣装"
+      end
+    end 
+  end  
 end

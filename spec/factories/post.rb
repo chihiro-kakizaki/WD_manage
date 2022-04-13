@@ -7,7 +7,7 @@ FactoryBot.define do
 
   factory :post_second, class:Post do
     content { '二つ目の投稿' }
-    category { :food }
+    category { :flower }
   end
 
   factory :post_third, class:Post do
