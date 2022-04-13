@@ -27,6 +27,9 @@ class PostsController < ApplicationController
   end
 
   def edit
+    if current_user != @post.user
+      redirect_to posts_path, notice:"編集できません"
+    end
   end
 
   def update
