@@ -13,11 +13,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[show]
 
-  resources :posts do
-    collection do
-      get 'search'
-    end
-  end
+  resources :posts 
 
   resources :favorites, only: %i[create destroy]
   resources :posts, only: %i[index] do
