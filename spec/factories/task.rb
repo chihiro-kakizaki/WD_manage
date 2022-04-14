@@ -11,16 +11,4 @@ FactoryBot.define do
     expired_on { Time.now.since(3.days) }
     status { '1' }
   end
-  # factory :third_task, class: Task do
-  #   title { '終了期限でソート' }
-  #   description { 'テスト確認' }
-  #   expired_at { Time.now.since(5.days) }
-  #   status { '完了' }
-  #   priority { '低' }
-
-  #   after(:build) do |task|
-  #     label = create(:third_label)
-  #     task.labellings << build(:labelling, task: task, label: label)
-  #   end
-  # end
 end

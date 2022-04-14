@@ -22,6 +22,5 @@
   <%= f.search_field :content_cont %>
   <%= f.label :category, 'カテゴリー' %>
   <%= f.select :category_eq, Post.categories_i18n.invert.map{|key, value| [key, Post.categories[value]]} %>
-
   <%= f.submit '検索' %>
 <% end %>
