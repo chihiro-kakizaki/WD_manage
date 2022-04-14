@@ -13,7 +13,7 @@ class PairsController < ApplicationController
     @pertner_email = params[:pertner_email]
     pertner = User.find_by(email: params[:pertner_email])
     if pertner.nil? || pertner == current_user || (pertner && current_user).assign.present? 
-      flash.now[:danger] = "emailが正しくありません"
+      flash.now[:danger] = "メールアドレスが正しくありません"
       render :new
     elsif @pair.save
       @pair.assigns.create(user: pertner)
