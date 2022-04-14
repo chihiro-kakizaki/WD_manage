@@ -16,8 +16,7 @@
         <td><%= task.user.name %></td>
         <td><%= task.title %></td>
         <td><%= task.expired_on %></td>
-        <td><%= task.status %></td>
-  
+        <td><%= task.status_i18n %></td>
 
         <td><%= link_to '詳細', pair_task_path(@pair, task) %></td>
         <td><%= link_to '編集', edit_pair_task_path(@pair, task) %></td>
