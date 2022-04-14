@@ -22,8 +22,8 @@
     <tr>
       <th>ユーザー名</th>
       <th>タスク名</th>
-      <th>期日目安</th>
-      <th>進行度</th>
+      <th><%= link_to t('tasks.sort_expired'), pair_path(@pair, sort_expired: "true") %></th>
+      <th><%= link_to t('tasks.sort_status'), pair_path(@pair, sort_status: "true") %></th>
     </tr>
 
   </thead>
@@ -34,7 +34,7 @@
         <td><%= task.user.name %></td>
         <td><%= task.title %></td>
         <td><%= task.expired_on %></td>
-        <td><%= task.status %></td>
+        <td><%= task.status_i18n %></td>
   
         <td><%= link_to '詳細', pair_task_path(@pair, task) %></td>
         <td><%= link_to '編集', edit_pair_task_path(@pair, task) %></td>
