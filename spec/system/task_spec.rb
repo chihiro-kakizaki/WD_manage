@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 RSpec.describe 'タスク管理機能', type: :system do
   let!(:user) {FactoryBot.create(:user)}
   let!(:user_second) {FactoryBot.create(:user_second)}
@@ -103,13 +104,36 @@ RSpec.describe 'タスク管理機能', type: :system do
         expect(task_list[0]).to have_content "衣装"
       end
     end
+  end
+
   describe '詳細表示機能' do
     context '任意のタスクの詳細ボタンを押した場合' do
       it '該当タスクの内容が表示される' do
         visit pair_path(pair)
         all("tbody tr")[1].click_on "詳細"
-        binding.pry
         expect(page).to have_content "衣装"
+      end
+    end
+  end
+
+  describe '編集機能' do
+    before do
+      visit pair_path(pair)
+    end
+    context '任意のタスクの編集ボタンを押した場合' do
+      it '該当タスクの編集ページに遷移する' do
+        all("tbody tr").last.click_on "編集"
+        expect(current_path).to eq edit_pair_task_path(pair,task_second)
+      end
+    end
+    context  '編集内容を入力して更新ボタンを押した場合' do
+      it '更新されたタスクがタスク一覧に表示される' do
+        all("tbody tr").last.click_on "編集"
+        fill_in "task_title", with:"変更したよ"
+        fill_in "task_description", with:"変更した内容"
+        click_on "commit"
+        expect(current_path).to eq pair_path(pair)
+        expect(page).to have_content "変更したよ"
       end
     end
   end
