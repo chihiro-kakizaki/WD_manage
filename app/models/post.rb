@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  validates :content, presence: true
+  validates :content, presence: true, length: { maximum: 1000 }
 
   enum category: {
                   dress: 0,
