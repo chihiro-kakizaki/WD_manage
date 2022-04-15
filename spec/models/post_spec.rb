@@ -22,4 +22,13 @@ RSpec.describe Post, type: :model do
       end
     end
   end
+  describe 'アソシエーションテスト' do
+    let!(:post) {FactoryBot.create(:post, user_id: user.id)}
+    let!(:favorite) {FactoryBot.create(:favorite, user: user, post: post)}
+    context 'ポストが削除されたとき' do
+      it '該当ポストのfavoriteデータも削除される' do
+        expect { post.destroy }.to change { Favorite.count}.by(-1)
+      end
+    end
+  end
 end
