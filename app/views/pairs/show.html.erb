@@ -4,15 +4,13 @@
   <%= pair.user.email %>
 </div>
 <% end %>
-
   <div>
     <%= @pair.weddingday_on %>
   </div>
   <div>
     <%= @pair.season_i18n %>
   </div>
-
-<td><%= link_to '編集', edit_pair_path(@pair.id) %></td>
+<%= link_to '編集', edit_pair_path(@pair.id) %>
 
 
 
@@ -24,7 +22,6 @@
       <th><%= link_to t('tasks.sort_expired'), pair_path(@pair, sort_expired: "true") %></th>
       <th><%= link_to t('tasks.sort_status'), pair_path(@pair, sort_status: "true") %></th>
     </tr>
-
     <% @tasks.each do |task| %>
 
       <tr class="task_row">
@@ -38,6 +35,7 @@
         <td><%= link_to '削除', pair_task_path(@pair, task), method: :delete %></td>
       </tr>
     <% end %>
+
 </table>
 
 <%= link_to '新規作成', new_pair_task_path(@pair.id) %>
