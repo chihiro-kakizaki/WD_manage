@@ -3,11 +3,16 @@ ja:
     models:
       post: 投稿
       pair: ペア
+      task: タスク
     attributes:
       post:
         category: カテゴリー
       pair:
-        season:挙式季節
+        season: 挙式季節
+      task:
+        title: タイトル
+        description: 詳細
+        status: 進行状況
   enums:
     post:
       category:
@@ -20,3 +25,12 @@ ja:
         summer: 夏
         autumn: 秋
         winter: 冬
+    task:
+      status:
+        not_started: 未着手
+        start: 着手中
+        completion: 完了
+  tasks:
+    sort_expired: 期限目安順に並び替え
+    sort_status: 進行度順に並び替え
+

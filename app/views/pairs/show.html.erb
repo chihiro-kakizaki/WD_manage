@@ -4,44 +4,38 @@
   <%= pair.user.email %>
 </div>
 <% end %>
-
   <div>
     <%= @pair.weddingday_on %>
   </div>
   <div>
     <%= @pair.season_i18n %>
   </div>
-
-<td><%= link_to '編集', edit_pair_path(@pair.id) %></td>
+<%= link_to '編集', edit_pair_path(@pair.id) %>
 
 
 
 <h1>タスク一覧</h1>
 <table>
-  <thead>
     <tr>
       <th>ユーザー名</th>
       <th>タスク名</th>
-      <th>期日目安</th>
-      <th>進行度</th>
+      <th><%= link_to t('tasks.sort_expired'), pair_path(@pair, sort_expired: "true") %></th>
+      <th><%= link_to t('tasks.sort_status'), pair_path(@pair, sort_status: "true") %></th>
     </tr>
-
-  </thead>
-  <tbody>
     <% @tasks.each do |task| %>
 
-      <tr>
+      <tr class="task_row">
         <td><%= task.user.name %></td>
         <td><%= task.title %></td>
         <td><%= task.expired_on %></td>
-        <td><%= task.status %></td>
+        <td><%= task.status_i18n %></td>
   
         <td><%= link_to '詳細', pair_task_path(@pair, task) %></td>
         <td><%= link_to '編集', edit_pair_task_path(@pair, task) %></td>
         <td><%= link_to '削除', pair_task_path(@pair, task), method: :delete %></td>
-        </tr>
+      </tr>
     <% end %>
-  </tbody>
+
 </table>
 
 <%= link_to '新規作成', new_pair_task_path(@pair.id) %>

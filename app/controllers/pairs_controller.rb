@@ -1,6 +1,7 @@
 class PairsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_pair, only: %i[show edit update]
+  #before_action :set_q, only: %i[show]
 
 
   def new
@@ -38,10 +39,17 @@ class PairsController < ApplicationController
   end
 
   def show
-    @tasks = @pair.tasks.all
     unless current_user.assign.pair.id == @pair.id
       redirect_to posts_path
     end
+    @tasks = @pair.tasks.all
+    if params[:sort_expired]
+      @tasks = @pair.tasks.all.expire_asc
+    elsif params[:sort_status]
+      @tasks = @pair.tasks.all.status_asc
+    end
+
+
   end
 
 
@@ -55,4 +63,7 @@ class PairsController < ApplicationController
     @pair = Pair.find(params[:id])
   end
 
+  # def set_q
+  #   @q = Task.ransack(params[:q])
+  # end
 end

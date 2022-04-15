@@ -5,6 +5,11 @@ class Task < ApplicationRecord
   belongs_to :user 
   belongs_to :pair 
 
+  scope :expire_asc, -> { order(expired_on: :asc) }
+  scope :status_asc, -> { order(status: :asc) }
 
-  enum status: {未着手:0, 着手中:1, 完了:2}
+  enum status: { not_started: 0,
+                 start: 1, 
+                 completion: 2
+                }
 end
