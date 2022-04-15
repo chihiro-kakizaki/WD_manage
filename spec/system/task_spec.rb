@@ -103,5 +103,14 @@ RSpec.describe 'タスク管理機能', type: :system do
         expect(task_list[0]).to have_content "衣装"
       end
     end
+  describe '詳細表示機能' do
+    context '任意のタスクの詳細ボタンを押した場合' do
+      it '該当タスクの内容が表示される' do
+        visit pair_path(pair)
+        all("tbody tr")[1].click_on "詳細"
+        binding.pry
+        expect(page).to have_content "衣装"
+      end
+    end
   end
 end
