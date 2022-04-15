@@ -137,4 +137,19 @@ RSpec.describe 'タスク管理機能', type: :system do
       end
     end
   end
+
+  describe '削除機能' do
+    before do
+      visit pair_path(pair)
+    end
+    context '任意のタスクの削除ボタンを押した場合' do
+      it '該当タスクが削除される' do
+        task_list = all('.task_row')
+        expect(task_list.size).to eq 10
+        all("tbody tr").last.click_on "削除"
+        task_list = all('.task_row')
+        expect(task_list.size).to  eq 9
+      end
+    end
+  end
 end
