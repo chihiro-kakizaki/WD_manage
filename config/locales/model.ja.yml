@@ -10,6 +10,8 @@ ja:
       pair:
         season: 挙式季節
       task:
+        title: タイトル
+        description: 詳細
         status: 進行状況
   enums:
     post:
