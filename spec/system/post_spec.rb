@@ -16,7 +16,7 @@ RSpec.describe Post, type: :system do
         visit posts_path
         click_on "新しく投稿する"
         fill_in "post_content", with: 'test投稿'
-        #attach_file "post_image", "#{Rails.root}/spec/factories/images/WD_icon.png"
+        #attach_file "post_image", "#{Rails.root}/app/assets/images/WD_icon.png"  
         select '衣装', from: "post_category"
         click_on "commit"
         expect(page).to have_content "test投稿"

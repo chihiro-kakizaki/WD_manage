@@ -8,7 +8,7 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
   date:
     formats:
-      default: "%Y/%m/%d"
+      default: "%Y/%m/%d %H:%M:%S"
       short: "%m/%d"
       long: "%Y年%m月%d日(%a)"
 

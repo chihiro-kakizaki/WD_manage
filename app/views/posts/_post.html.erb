@@ -1,20 +1,36 @@
-<table>
-  <tr class="post_row">
-    <td><%= post.user.name %></td>
-    <td><%= post.content %></td>
-    <td><%= post.category_i18n %></td>
-    <td><%= post.user.assign.pair.season_i18n if post.user.assign %></td>
+<div class='image'>
+  <%= image_tag post.image.url if post.image && post.image.url %>
+</div>
+<div>
+  <%= post.user.name %>
+</div>
+<div>
+  <%= post.content %>
+</div>
+<div>
+  <%= post.category_i18n %>
+</div>
+<div>
+  <%= l post.created_at, format: :short %>
+</div>
+    <%= post.user.assign.pair.season_i18n if post.user.assign %>
     <% if user_signed_in? && current_user != post.user %>
       <% if current_user.favorite_find(post.id) %>
-        <td><%= link_to 'お気に入りからはずす', destroy_favorite_path(post.id), method: :delete, remote: true %></td>
+        
+          <%= link_to destroy_favorite_path(post.id), method: :delete, remote: true do %>
+            <span class="material-icons notfavorite-btn ">favorite</span>
+          <% end %>
+        
       <% else %>
-        <td><%= link_to 'お気に入り登録する', create_favorite_path(post.id), method: :post, remote: true %></td>
+        
+          <%= link_to create_favorite_path(post.id), method: :post, remote: true do %>
+            <span class="material-icons favorite-btn ">favorite_border</span>
+          <% end %>
+        
       <% end %>
     <% end %>
     <% if user_signed_in? && current_user == post.user %>
-      <td><%= link_to '詳細', post_path(post.id) %></td>
-      <td><%= link_to '編集', edit_post_path(post.id) %></td>
-      <td><%= link_to '削除', post_path(post.id), method: :delete %></td>
+      <%= link_to '詳細', post_path(post.id) %>
+      <%= link_to '編集', edit_post_path(post.id) %>
+      <%= link_to '削除', post_path(post.id), method: :delete %>
     <% end %>
-  </tr>
-</table>

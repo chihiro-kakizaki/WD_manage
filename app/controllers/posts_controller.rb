@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   before_action :set_q, only: %i[index]
 
   def index
+    @q.sorts ='created_at desc' 
     @posts = @q.result(distinct: true)
     @pair = current_user.assign.pair.id if user_signed_in? && current_user.assign
     @categories = Post.categories_i18n

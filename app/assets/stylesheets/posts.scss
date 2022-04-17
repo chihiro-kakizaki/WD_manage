@@ -1,3 +1,19 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.post_main {
+  width: 80%;
+  margin: 0 auto;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 410px);
+  gap: 20px;
+
+}
+
+.list {
+  border: thick double #32a1ce;
+
+}
