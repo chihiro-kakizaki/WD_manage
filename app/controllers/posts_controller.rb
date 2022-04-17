@@ -24,7 +24,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @favorite = current_user.favorites.find_by(post_id: @post.id) if user_signed_in?
   end
 
   def edit
@@ -44,10 +43,6 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to posts_path, notice: "削除しました！"
-  end
-
-  def favorites
-    @favorites = current_user.favorite_posts
   end
 
 

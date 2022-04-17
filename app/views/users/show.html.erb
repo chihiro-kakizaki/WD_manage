@@ -7,6 +7,15 @@
     <%= link_to 'プロフィール編集', edit_user_registration_path, class:"btn btn-outline-secondary btn-sm" %>
   </div>
 
+
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <%= link_to "MyPost", user_path(@user), class: "nav-link active" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "FavoritePosts", favorites_user_path(@user), class: "nav-link active" %>
+  </li>
+
   <div class="mypost_wrapper">
     <% @user.posts.each do |post| %>
       <div class='mypost_list'>
