@@ -1,36 +1,36 @@
-<div class='image'>
+<div>
   <%= image_tag post.image.url if post.image && post.image.url %>
 </div>
-<div>
-  <%= post.user.name %>
-</div>
+<% if user_signed_in? && current_user != post.user %>
+  <% if current_user.favorite_find(post.id) %> 
+      <%= link_to destroy_favorite_path(post.id), method: :delete, remote: true do %>
+        <i class="material-icons notfavorite-btn">favorite</i>
+      <% end %>       
+  <% else %>      
+      <%= link_to create_favorite_path(post.id), method: :post, remote: true do %>
+        <i class="material-icons favorite-btn">favorite_border</i>
+      <% end %>      
+  <% end %>
+<% end %>
+
 <div>
   <%= post.content %>
 </div>
 <div>
-  <%= post.category_i18n %>
+  <%= post.user.assign.pair.season_i18n if post.user.assign %>
 </div>
-<div>
+  
+<div class='post_name'>
+  <%= post.user.name %>
+</div>
+
+<div class='post_last'>
+  <div class='post_category'>
+    <p>category:<%= post.category_i18n %></p>
+  </div>
   <%= l post.created_at, format: :short %>
+  <% if user_signed_in? && current_user == post.user %>
+    <%= link_to '編集', edit_post_path(post.id), class:"edit btn btn-outline-secondary btn-sm"%>
+    <%= link_to '削除', post_path(post.id), method: :delete, class:"edit btn btn-outline-secondary btn-sm" %>
+  <% end %>
 </div>
-    <%= post.user.assign.pair.season_i18n if post.user.assign %>
-    <% if user_signed_in? && current_user != post.user %>
-      <% if current_user.favorite_find(post.id) %>
-        
-          <%= link_to destroy_favorite_path(post.id), method: :delete, remote: true do %>
-            <span class="material-icons notfavorite-btn ">favorite</span>
-          <% end %>
-        
-      <% else %>
-        
-          <%= link_to create_favorite_path(post.id), method: :post, remote: true do %>
-            <span class="material-icons favorite-btn ">favorite_border</span>
-          <% end %>
-        
-      <% end %>
-    <% end %>
-    <% if user_signed_in? && current_user == post.user %>
-      <%= link_to '詳細', post_path(post.id) %>
-      <%= link_to '編集', edit_post_path(post.id) %>
-      <%= link_to '削除', post_path(post.id), method: :delete %>
-    <% end %>
