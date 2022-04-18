@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_08_023145) do
+ActiveRecord::Schema.define(version: 2022_04_18_060947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 2022_04_08_023145) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["pair_id"], name: "index_assigns_on_pair_id"
     t.index ["user_id"], name: "index_assigns_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "task_id", null: false
+    t.bigint "user_id", null: false
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["task_id"], name: "index_comments_on_task_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -92,6 +102,8 @@ ActiveRecord::Schema.define(version: 2022_04_08_023145) do
 
   add_foreign_key "assigns", "pairs"
   add_foreign_key "assigns", "users"
+  add_foreign_key "comments", "tasks"
+  add_foreign_key "comments", "users"
   add_foreign_key "favorites", "posts"
   add_foreign_key "favorites", "users"
   add_foreign_key "pairs", "users", column: "owner_id"

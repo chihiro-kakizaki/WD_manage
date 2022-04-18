@@ -21,12 +21,6 @@ class Pair < ApplicationRecord
     end
   end
 
-  # def update_tasks
-  #   default_tasks_params.each do |task_params|
-  #     tasks.create(task_params)
-  #   end
-  # end
-
 
   def default_tasks_params
     [{user: owner, title:"衣装", description:"衣装・アクセサリーやシューズ等の小物の決定",expired_on: weddingday_on<<4, status: 0},

@@ -18,3 +18,11 @@
   </div>
   <%= link_to '戻る', pair_path(@pair), class: "task_back btn btn-outline-secondary btn-sm" %>
 </div>
+
+  <p class='comment_title'>コメント一覧</p>
+    <div id="comments_area">
+      <%= render partial: 'comments/index', locals: { comments: @comments, task: @task, pair: @pair } %>
+    </div>
+    <%= render partial: 'comments/form', locals: { comment: @comment, task: @task, pair: @pair} %>
+
+</div>

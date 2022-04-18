@@ -31,6 +31,9 @@ class TasksController < ApplicationController
     unless current_user.assign.pair.id == @pair.id
       redirect_to root_path
     end
+    @comments = @task.comments
+    @comment = @task.comments.build
+    @user = @comment
   end
 
   def destroy
