@@ -1,7 +1,20 @@
-<h1>詳細画面</h1>
-<p>投稿者：<%= @task.user.name %></p>
-<p>タイトル: <%= @task.title %></p>
-<p>詳細: <%= @task.description %></p>
-
-
-<%= link_to '戻る', pair_path(@pair) %>
+<div class='task_show'>
+  <div class='upper'>
+    <p class='task_expired'>
+      <%= @task.expired_on %>まで
+    </p>
+    <div class='task_title'>
+      <p>＼<%= @task.title %>／</p>
+    </div>
+  </div>
+  <div class='task_description'>
+    <%= @task.description %></p>
+  </div>
+  <div class='create_user'>
+    <%= @task.user.name %>
+    <%= image_tag @task.user.icon.url, class: "task_icon", size: '40x40' %>
+    <%= link_to '編集', edit_pair_task_path(@task.pair, @task), class: "btn btn-outline-secondary btn-sm" %>
+    <%= link_to '削除', pair_task_path(@task.pair, @task), method: :delete,class: "btn btn-outline-secondary btn-sm" %>
+  </div>
+  <%= link_to '戻る', pair_path(@pair), class: "task_back btn btn-outline-secondary btn-sm" %>
+</div>
