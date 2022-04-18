@@ -16,9 +16,7 @@
 <div>
   <%= post.content %>
 </div>
-<div>
-  <%= post.user.assign.pair.season_i18n if post.user.assign %>
-</div>
+
   
 <div class='post_name'>
   <%= post.user.name %>
@@ -27,6 +25,9 @@
 <div class='post_last'>
   <div class='post_category'>
     <p>category:<%= post.category_i18n %></p>
+  </div>
+  <div>
+    <p>season:<%= post.user.assign.pair.season_i18n if post.user.assign %></p>
   </div>
   <%= l post.created_at, format: :short %>
   <% if user_signed_in? && current_user == post.user %>

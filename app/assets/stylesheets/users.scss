@@ -3,24 +3,32 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 /*共通部分*/
-.introduce {
-  margin: 30px 0;
+.user_infomation {
+  margin: 30px 20%;
+  text-align: right;
 }
 
 .icon {
   border-radius: 100px;
-}
-
-.mail {
   display: inline-block;
 }
+
+.profile_name {
+  padding: 10px 0;
+}
+
+.post_last {
+  text-align: right;
+  padding: 0;
+}
+
 
 
 /*showページ*/
 .mypage {
   width: 80%;
   margin: 0 auto;
-  text-align: center;
+  
 }
 
 .mypost_wrapper {
@@ -38,17 +46,12 @@
   text-align: right;
 }
 
-.post_last {
-  text-align: right;
-  padding: 0;
-}
 
 
 /*favoritesページ*/
 .favoritespage {
   width: 80%;
   margin: 0 auto;
-  text-align: center;
 }
 
 .favorites_wrapper {
@@ -66,11 +69,4 @@
   text-align: right;
 }
 
-.favorite_category {
-  text-align: right;
-}
-
-.favorite_date {
-  text-align: right;
-}
 

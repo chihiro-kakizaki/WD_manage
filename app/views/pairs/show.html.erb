@@ -31,9 +31,6 @@
     </li>
   </ul>
 
-
-
-
   <table class='table'>
     <thead>
       <tr>
@@ -46,7 +43,6 @@
     </thead>
     <tbody>
       <% @tasks.each do |task| %>
-      
         <tr class="task_row">
           <td><%= task.user.name %></td>
           <td><%= task.title %></td>
@@ -55,12 +51,10 @@
     
           <td><%= link_to '詳細', pair_task_path(@pair, task), class: "btn btn-outline-secondary btn-sm" %>
           <%= link_to '編集', edit_pair_task_path(@pair, task), class: "btn btn-outline-secondary btn-sm" %>
-          <%= link_to '削除', pair_task_path(@pair, task), method: :delete,class: "btn btn-outline-secondary btn-sm" %></td>
+          <%= link_to '削除', pair_task_path(@pair, task), method: :delete,class: "btn btn-outline-secondary btn-sm" %>
         </tr>
       <% end %>
     </tbody>
   </table>
-
-
 </div>      
 

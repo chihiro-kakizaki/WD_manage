@@ -1,0 +1,23 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.comment_title {
+  text-align: center;
+}
+
+.comment_flame {
+  width: 55%;
+  margin: 10px auto;
+  border: solid thin #a4abac;
+  word-wrap: break-word;
+}
+
+.comment_form {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.comment_user {
+  text-align: right;
+}

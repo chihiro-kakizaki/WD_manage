@@ -21,15 +21,9 @@ class Pair < ApplicationRecord
     end
   end
 
-  # def update_tasks
-  #   default_tasks_params.each do |task_params|
-  #     tasks.create(task_params)
-  #   end
-  # end
-
 
   def default_tasks_params
-    [{user: owner, title:"衣装", description:"ウェディングドレス・和装の決定・アクセサリーやシューズ等の小物の決定",expired_on: weddingday_on<<4, status: 0},
+    [{user: owner, title:"衣装", description:"衣装・アクセサリーやシューズ等の小物の決定",expired_on: weddingday_on<<4, status: 0},
      {user: owner, title:"前撮り", description:"前撮りの検討・スタジオやロケーションの決定",expired_on: weddingday_on<<4, status: 0},
      {user: owner, title:"装花", description:"会場コーディネートと装花の決定",expired_on: weddingday_on<<3, status: 0},
      {user: owner, title:"演出", description:"当日のプログラムと演出の決定",expired_on: weddingday_on<<3, status: 0},

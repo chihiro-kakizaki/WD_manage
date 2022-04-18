@@ -1,8 +1,8 @@
 <div class="mypage">
-  <div class='introduce'>
-    <h3><%= @user.name %>のマイページ</h3>
+  <div class='user_infomation'>
+    <h3>MyPage</h3>
     <%= image_tag @user.icon.url , class: "icon"%>
-    <p class="mail">メールアドレス : <%= @user.email %></p>
+    <p class="profile_name">Name : <%= @user.name %></p>
     <div>
       <%= link_to 'プロフィール編集', edit_user_registration_path, class:"btn btn-outline-secondary btn-sm" %>
     </div>
@@ -25,10 +25,7 @@
         </div>
         <div>
           <%= post.content %>
-        </div>
-        <div>
-          <%= post.user.assign.pair.season_i18n if post.user.assign %>
-        </div>      
+        </div>   
         <div class='post_name'>
           <%= post.user.name %>
         </div>
@@ -36,6 +33,9 @@
           <div class='post_category'>
             <p>category:<%= post.category_i18n %></p>
           </div>
+          <div>
+            <p>season:<%= post.user.assign.pair.season_i18n if post.user.assign %></p>
+          </div>   
           <%= l post.created_at, format: :short %>
           <% if user_signed_in? && current_user == post.user %>
             <%= link_to '編集', edit_post_path(post.id), class:"edit btn btn-outline-secondary btn-sm"%>

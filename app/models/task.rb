@@ -5,6 +5,8 @@ class Task < ApplicationRecord
   belongs_to :user 
   belongs_to :pair 
 
+  has_many :comments, dependent: :destroy
+
   scope :expire_asc, -> { order(expired_on: :asc) }
   scope :status_asc, -> { order(status: :asc) }
 

@@ -25,7 +25,9 @@ Rails.application.routes.draw do
   delete 'favorite/:id', to: 'favorites#destroy', as: 'destroy_favorite' 
  
   resources :pairs do
-    resources :tasks
+    resources :tasks do
+      resources :comments
+    end
   end
 
   resources :home, only: %i[index]
