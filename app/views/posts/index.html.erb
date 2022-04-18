@@ -1,7 +1,6 @@
 
 <div class='post_main'>
   <% if current_user.present? %>
-    <%= link_to "お気に入り一覧", favorites_user_path(current_user.id), class:"favorite btn btn-outline-secondary btn-md" %>
     <%= link_to '新しく投稿する', new_post_path, class:"new btn btn-outline-secondary btn-md" %>
   <% end %>
   <div class='post_search'>

@@ -1,7 +1,7 @@
 <div class="mypage">
   <div class='introduce'>
     <h3><%= @user.name %>のマイページ</h3>
-    <%= image_tag @user.icon.url , class: "image"%>
+    <%= image_tag @user.icon.url , class: "icon"%>
     <p class="mail">メールアドレス : <%= @user.email %></p>
     <div>
       <%= link_to 'プロフィール編集', edit_user_registration_path, class:"btn btn-outline-secondary btn-sm" %>
