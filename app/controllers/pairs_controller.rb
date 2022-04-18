@@ -42,14 +42,13 @@ class PairsController < ApplicationController
     unless current_user.assign.pair.id == @pair.id
       redirect_to posts_path
     end
+    @count =(@pair.weddingday_on - Date.today).to_i
     @tasks = @pair.tasks.all
     if params[:sort_expired]
       @tasks = @pair.tasks.all.expire_asc
     elsif params[:sort_status]
       @tasks = @pair.tasks.all.status_asc
     end
-
-
   end
 
 

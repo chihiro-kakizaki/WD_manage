@@ -4,48 +4,78 @@
     <title>WDManage</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons', media: 'all' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <% if current_user.try(:admin?) %>
-        <%= link_to '管理者画面', rails_admin_path %>
-      <% end %>
-      <% if  create_pair %>
-        <%= link_to 'プロフィール', user_path(current_user) %>
-        <%= link_to 'タスク一覧画面', pair_path(@pair) %>
-        <%= link_to "投稿", posts_path %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to 'プロフィール', user_path(current_user) %>
-        <%= link_to 'タスク作成', new_pair_path %>
-        <%= link_to "投稿", posts_path %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <% end %>
-    <% else %>
-      <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
-    <% end %>
-    
-    <% if current_user.present? %>
-      <p>こんにちは、<%= current_user.name %>さん！</p>
-    <% else %>
-      <p>こんにちは、ゲストさん！</p>
-    <% end %>
 
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= link_to 'TOPPAGE', root_path , class: "navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if user_signed_in? %>
+        <% if current_user.try(:admin?) %>
+          <li class="nav-item">
+            <%= link_to '管理者画面', rails_admin_path, class:"nav-link" %>
+          </li>
+        <% end %>
+        <li class="nav-item">
+          <%= link_to 'プロフィール', user_path(current_user), class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '投稿', posts_path , class:"nav-link" %>
+        </li>
+
+        <% if create_pair %>
+          <li class="nav-item">
+            <%= link_to 'タスク一覧画面', pair_path(@pair), class:"nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'タスク作成', new_pair_path, class:"nav-link" %>
+          </li>
+        <% end %>
+        <li class="nav-item">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete ,class:"nav-link" %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to '新規登録', new_user_registration_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'ログイン', new_user_session_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'ゲスト管理者ログイン', users_admin_guest_sign_in_path, method: :post, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class:"nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+            
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
 
-    <% if notice %>
-      <p class="alert alert-notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-error"><%= alert %></p>
-    <% end %>
+
+
       <%= yield %>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   </body>
 </html>

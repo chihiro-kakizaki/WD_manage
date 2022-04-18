@@ -1,41 +1,66 @@
-<% @pair.assigns.each do |pair| %>
-<div>
-  <%= pair.user.name %>
-  <%= pair.user.email %>
-</div>
-<% end %>
-  <div>
-    <%= @pair.weddingday_on %>
-  </div>
-  <div>
-    <%= @pair.season_i18n %>
-  </div>
-<%= link_to '編集', edit_pair_path(@pair.id) %>
-
-
-
-<h1>タスク一覧</h1>
-<table>
-    <tr>
-      <th>ユーザー名</th>
-      <th>タスク名</th>
-      <th><%= link_to t('tasks.sort_expired'), pair_path(@pair, sort_expired: "true") %></th>
-      <th><%= link_to t('tasks.sort_status'), pair_path(@pair, sort_status: "true") %></th>
-    </tr>
-    <% @tasks.each do |task| %>
-
-      <tr class="task_row">
-        <td><%= task.user.name %></td>
-        <td><%= task.title %></td>
-        <td><%= task.expired_on %></td>
-        <td><%= task.status_i18n %></td>
-  
-        <td><%= link_to '詳細', pair_task_path(@pair, task) %></td>
-        <td><%= link_to '編集', edit_pair_task_path(@pair, task) %></td>
-        <td><%= link_to '削除', pair_task_path(@pair, task), method: :delete %></td>
-      </tr>
+<div class='tasks_list'> 
+  <div class='pair_infomation'>
+    <% @pair.assigns.each_with_index do |pair, index| %>
+      <% if index == 0 %>
+        <%= image_tag pair.user.icon.url, class: "task_icon", size: '40x40' %>
+        <p class='first_user'><%= pair.user.name %>＆</p>
+      <% else %>
+        <%= pair.user.name %>
+        <%= image_tag pair.user.icon.url, class: "task_icon", size: '40x40' %>
+      <% end %>
     <% end %>
+        <div>
+          <% if @count <= 0 %>
+            <p class='pair_count'>結婚式まであと0日</p>
+          <% else %>
+            <p class='pair_count'>結婚式まであと<%= @count %>日</p>
+          <% end %>
+        </div>
+      <%= link_to 'ペア情報の編集', edit_pair_path(@pair.id), class: "btn btn-outline-secondary btn-sm"%>
+  </div>
 
-</table>
+  <h4>TODOリスト</h4>
+    <%= link_to '新規作成', new_pair_task_path(@pair.id), class: "btn btn-outline-secondary" %>
 
-<%= link_to '新規作成', new_pair_task_path(@pair.id) %>
+  <ul class="nav nav-tabs justify-content-end">
+    <li class="nav-item">
+      <%= link_to t('tasks.sort_expired'), pair_path(@pair, sort_expired: "true"), class: "nav-link active " %>
+    </li>
+    <li class="nav-item">
+      <%= link_to t('tasks.sort_status'), pair_path(@pair, sort_status: "true"), class: "nav-link active" %>
+    </li>
+  </ul>
+
+
+
+
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>ユーザー名</th>
+        <th>タスク名</th>
+        <th>期限目安</th>
+        <th>進行度</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tasks.each do |task| %>
+      
+        <tr class="task_row">
+          <td><%= task.user.name %></td>
+          <td><%= task.title %></td>
+          <td><%= task.expired_on %></td>
+          <td><%= task.status_i18n %></td>
+    
+          <td><%= link_to '詳細', pair_task_path(@pair, task), class: "btn btn-outline-secondary btn-sm" %>
+          <%= link_to '編集', edit_pair_task_path(@pair, task), class: "btn btn-outline-secondary btn-sm" %>
+          <%= link_to '削除', pair_task_path(@pair, task), method: :delete,class: "btn btn-outline-secondary btn-sm" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+</div>      
+

@@ -1,17 +1,21 @@
-<h3>挙式情報や招待するお相手を入力してTODOリストを作りましょう</h3>
-<%= form_with(model: @pair, local: true) do |f| %>
-  <div>
-    <%= f.label :挙式日 %>
-    <%= f.date_select :weddingday_on %>
-  </div>
-  <div>
-    <%= f.label :挙式季節 %>
-    <%= f.select :season, Pair.seasons_i18n.invert ,{} %>
-  </div>
-  <div>
-    <%= f.label :招待する相手のメールアドレス %>
-    <%= text_field_tag :pertner_email, nil, value: @pertner_email %>
-  </div>
+<div class='new_pair'>
+  <p>
+    TODOリストを作成するために以下の情報をご入力下さい。<br>ユーザー登録している方のみ招待することができます。</br>
+  </p>
+  <%= form_with(model: @pair, local: true) do |f| %>
+    <div>
+      <%= f.label :挙式日 %>
+      <%= f.date_select :weddingday_on %>
+    </div>
+    <div>
+      <%= f.label :挙式季節 %>
+      <%= f.select :season, Pair.seasons_i18n.invert ,{} %>
+    </div>
+    <div>
+      <%= f.label :招待する相手のメールアドレス %>
+      <%= text_field_tag :pertner_email, nil, value: @pertner_email %>
+    </div>
 
-  <%= f.submit %>
-<% end %>
+    <%= f.submit '新規作成', class:"save btn btn-outline-secondary btn-md" %>
+  <% end %>
+</div>

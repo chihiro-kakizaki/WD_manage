@@ -16,7 +16,7 @@ RSpec.describe Post, type: :system do
         visit posts_path
         click_on "新しく投稿する"
         fill_in "post_content", with: 'test投稿'
-        #attach_file "post_image", "#{Rails.root}/spec/factories/images/WD_icon.png"
+        attach_file "post_image", "#{Rails.root}/app/assets/images/WD_icon.png"  
         select '衣装', from: "post_category"
         click_on "commit"
         expect(page).to have_content "test投稿"
@@ -33,7 +33,7 @@ RSpec.describe Post, type: :system do
         expect(page).to have_content '今日は晴れ'
       end
       it '新しいタスクが一番上に表示される' do
-        post_list = all('.post_row')
+        post_list = all('.wrapper')
         expect(post_list[0]).to have_content '最新の投稿になるはず'
       end
     end

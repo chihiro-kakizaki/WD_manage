@@ -1,3 +1,76 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+/*共通部分*/
+.introduce {
+  margin: 30px 0;
+}
+
+.icon {
+  border-radius: 100px;
+}
+
+.mail {
+  display: inline-block;
+}
+
+
+/*showページ*/
+.mypage {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mypost_wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 410px);
+  gap: 20px;
+  margin: 30px auto;
+}
+
+.mypost_list {
+  border: thick double #AFDFE4;
+}
+
+.post_name {
+  text-align: right;
+}
+
+.post_last {
+  text-align: right;
+  padding: 0;
+}
+
+
+/*favoritesページ*/
+.favoritespage {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.favorites_wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 410px);
+  gap: 20px;
+  margin: 30px auto;
+}
+
+.favorites_list {
+  border: thick double #AFDFE4;
+}
+
+.favorite_name {
+  text-align: right;
+}
+
+.favorite_category {
+  text-align: right;
+}
+
+.favorite_date {
+  text-align: right;
+}
+

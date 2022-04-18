@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  validates :content, presence: true
+  validates :content, presence: true, length: { maximum: 1000 }
 
   enum category: {
                   dress: 0,
@@ -11,4 +11,5 @@ class Post < ApplicationRecord
 
   belongs_to :user
   has_many :favorites, dependent: :destroy
+  has_many :users, through: :favorites
 end

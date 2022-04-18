@@ -11,16 +11,16 @@ Rails.application.routes.draw do
     post 'users/admin_guest_sign_in', to: 'users/sessions#admin_guest_sign_in'
   end
 
-  resources :users, only: %i[show]
-
-  resources :posts 
-
-  resources :favorites, only: %i[create destroy]
-  resources :posts, only: %i[index] do
+  resources :users, only: %i[show] do
     member do
       get :favorites
     end
   end
+
+  resources :posts 
+
+  resources :favorites, only: %i[create destroy]
+
   post 'favorite/:id', to: 'favorites#create', as: 'create_favorite'
   delete 'favorite/:id', to: 'favorites#destroy', as: 'destroy_favorite' 
  

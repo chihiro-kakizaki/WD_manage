@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   before_action :set_q, only: %i[index]
 
   def index
+    @q.sorts ='created_at desc' 
     @posts = @q.result(distinct: true)
     @pair = current_user.assign.pair.id if user_signed_in? && current_user.assign
     @categories = Post.categories_i18n
@@ -23,7 +24,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @favorite = current_user.favorites.find_by(post_id: @post.id) if user_signed_in?
   end
 
   def edit
@@ -43,10 +43,6 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to posts_path, notice: "削除しました！"
-  end
-
-  def favorites
-    @favorites = current_user.favorite_posts
   end
 
 

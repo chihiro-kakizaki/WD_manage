@@ -1,0 +1,41 @@
+<div class="favoritespage">
+  <div class='introduce'>
+    <h3><%= @user.name %>のマイページ</h3>
+    <%= image_tag @user.icon.url , class: "icon"%>
+    <p class="mail">メールアドレス : <%= @user.email %></p>
+    <div>
+      <%= link_to 'プロフィール編集', edit_user_registration_path, class:"btn btn-outline-secondary btn-sm" %>
+    </div>
+  </div>
+
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <%= link_to "MyPost", user_path(@user), class: "nav-link active" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "FavoritePosts", favorites_user_path(@user), class: "nav-link active" %>
+    </li>
+  </ul>
+
+  <div class="favorites_wrapper">
+    <% @favorites.each do |list| %> 
+      <div class='favorites_list'>
+        <div>  
+          <%= image_tag list.image.url %>
+        </div>
+        <div>
+          <%= list.content %>
+        </div>
+        <div class='favorite_name'>
+          <%= list.user.name %>
+        </div>
+        <div class='favorite_category'>
+          <%= list.category %>
+        </div>
+        <div class='favorite_date'>
+          <%= l list.created_at, format: :short  %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
