@@ -6,8 +6,6 @@ class PostsController < ApplicationController
   def index
     @q.sorts ='created_at desc' 
     @posts = @q.result(distinct: true)
-    @pair = current_user.assign.pair.id if user_signed_in? && current_user.assign
-    @categories = Post.categories_i18n
   end
 
   def new
