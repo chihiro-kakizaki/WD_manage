@@ -6,8 +6,6 @@ class PostsController < ApplicationController
   def index
     @q.sorts ='created_at desc' 
     @posts = @q.result(distinct: true)
-    
-   # @posts = @posts.
   end
 
   def new

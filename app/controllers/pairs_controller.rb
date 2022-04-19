@@ -1,8 +1,6 @@
 class PairsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_pair, only: %i[show edit update]
-  #before_action :set_q, only: %i[show]
-
 
   def new
     @pair = current_user.build_pair
@@ -61,8 +59,4 @@ class PairsController < ApplicationController
   def set_pair
     @pair = Pair.find(params[:id])
   end
-
-  # def set_q
-  #   @q = Task.ransack(params[:q])
-  # end
 end

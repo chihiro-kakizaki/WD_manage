@@ -5,33 +5,28 @@
   <% if current_user.favorite_find(post.id) %> 
       <%= link_to destroy_favorite_path(post.id), method: :delete, remote: true do %>
         <i class="material-icons notfavorite-btn">favorite</i>
-      <% end %>       
+      <% end %>
   <% else %>      
       <%= link_to create_favorite_path(post.id), method: :post, remote: true do %>
         <i class="material-icons favorite-btn">favorite_border</i>
       <% end %>      
   <% end %>
+<% elsif user_signed_in? && current_user == post.user %>
+    <%= link_to edit_post_path(post.id), method: :get do %>
+      <i class="material-icons edit-btn">edit</i>
+    <% end %>
+    <%= link_to post_path(post.id), method: :delete do %>
+      <i class="material-icons delete-btn">delete</i>
+    <% end %>
 <% end %>
-
-<div>
+<%= post.user.name %>
+<div class="overflow-auto" style="height:100px;">
   <%= post.content %>
 </div>
-
-  
-<div class='post_name'>
-  <%= post.user.name %>
-</div>
-
 <div class='post_last'>
-  <div class='post_category'>
-    <p>category:<%= post.category_i18n %></p>
-  </div>
-  <div>
-    <p>season:<%= post.user.assign.pair.season_i18n if post.user.assign %></p>
+  <div class='post_tag'>
+    <span class="category"><%= post.category_i18n %></span>
+    <span class="season_<%= post.user.assign.pair.season if post.user.assign %>"><%= post.user.assign.pair.season_i18n if post.user.assign %></span>
   </div>
   <%= l post.created_at, format: :short %>
-  <% if user_signed_in? && current_user == post.user %>
-    <%= link_to '編集', edit_post_path(post.id), class:"edit btn btn-outline-secondary btn-sm"%>
-    <%= link_to '削除', post_path(post.id), method: :delete, class:"edit btn btn-outline-secondary btn-sm" %>
-  <% end %>
 </div>
