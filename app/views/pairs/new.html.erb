@@ -5,7 +5,7 @@
   <%= form_with(model: @pair, local: true) do |f| %>
     <div>
       <%= f.label :挙式日 %>
-      <%= f.date_select :weddingday_on %>
+      <%= f.date_field :weddingday_on %>
     </div>
     <div>
       <%= f.label :挙式季節 %>
