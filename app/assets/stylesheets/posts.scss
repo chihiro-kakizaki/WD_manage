@@ -31,34 +31,48 @@
 }
 
 .category {
-  border: solid thin gray;
-  color: #808080;
+  border: solid thin #808080;
   padding: 5px;
   border-radius: 10px;
 }
 
-.season_spring {
+.category_tag{
+  text-decoration: none;
+  color: #808080;
+}
+
+.spring {
   background-color: #f7c8d1;
   color: #808080;
-  padding: 5px 10px;
+  text-decoration: none;
+  padding: 5px 5px;
   margin: 5px;
   border-radius: 10px;
 }
 
-.season_summer {
-  background-color: #00a8e3;
+.summer {
+  background-color: #75C3f0;
+  color: #3d667d;
+  text-decoration: none;
+  padding: 5px 5px;
+  margin: 5px;
+  border-radius: 10px;
 }
 
-.season_autumn {
+.autumn {
   background-color: #dcb000;
   color: #665200;
-  padding: 5px 10px;
+  padding: 5px 5px;
   margin: 5px;
   border-radius: 10px;
 }
 
-.season_wintter {
-  background-color: #c0c4e3;
+.winter {
+  background-color:#dfdff0 ;
+  color: #74747d;
+  padding: 5px 5px;
+  margin: 5px;
+  border-radius: 10px;
 }
 
 .material-icons.edit-btn {
