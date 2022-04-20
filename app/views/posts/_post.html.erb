@@ -25,8 +25,10 @@
 </div>
 <div class='post_last'>
   <div class='post_tag'>
-    <span class="category"><%= post.category_i18n %></span>
-    <span class="season_<%= post.user.assign.pair.season if post.user.assign %>"><%= post.user.assign.pair.season_i18n if post.user.assign %></span>
+    <span class="category"><%= link_to post.category_i18n, posts_path(q:{category_eq: post.category_before_type_cast}),class:'category_tag' %></span>
+    <% if post.user.assign %>
+      <span class="<%= post.user.assign.pair.season %>"><%= link_to post.user.assign.pair.season_i18n, posts_path(q:{user_assign_pair_season_eq: post.user.assign.pair.season_before_type_cast}), class: post.user.assign.pair.season %></span>
+    <% end %>
   </div>
   <%= l post.created_at, format: :short %>
 </div>

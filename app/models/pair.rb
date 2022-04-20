@@ -1,5 +1,6 @@
 class Pair < ApplicationRecord
-  after_save_commit :create_default_tasks
+  before_create :create_default_tasks
+  before_update :update_tasks_depend_on_weddingday_on
  
 
   enum season: {
@@ -17,7 +18,17 @@ class Pair < ApplicationRecord
 
   def create_default_tasks
     default_tasks_params.each do |task_params|
-      tasks.create(task_params)
+      tasks.build(task_params)
+    end
+  end
+
+  def update_tasks_depend_on_weddingday_on
+    if self.will_save_change_to_weddingday_on?
+      diff = weddingday_on_change[1] - weddingday_on_change[0]
+      tasks.each do |task|
+        after = task.expired_on + diff
+        task.update(expired_on: after)
+      end
     end
   end
 
