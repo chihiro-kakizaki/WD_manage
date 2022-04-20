@@ -28,8 +28,6 @@ class PairsController < ApplicationController
 
   def update
     if @pair.update(pair_params)
-       @pair.tasks.destroy_all
-       @pair.create_default_tasks
        redirect_to pair_path(@pair)
     else
       render :new
