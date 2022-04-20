@@ -14,6 +14,9 @@ class PairsController < ApplicationController
     if pertner.nil? || pertner == current_user || (pertner && current_user).assign.present? 
       flash.now[:danger] = "メールアドレスが正しくありません"
       render :new
+    elsif @pair.weddingday_on.nil?
+      flash.now[:danger] = "挙式日を入力してください"
+      render :new
     elsif @pair.save
       @pair.assigns.create(user: pertner)
       @pair.assigns.create(user: current_user)
