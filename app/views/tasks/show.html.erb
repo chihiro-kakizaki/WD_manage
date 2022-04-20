@@ -1,28 +1,29 @@
-<div class='task_show'>
-  <div class='upper'>
-    <p class='task_expired'>
-      <%= @task.expired_on %>まで
-    </p>
-    <div class='task_title'>
-      <p>＼<%= @task.title %>／</p>
+<div class='task_show row'>
+  <div class='task col-12'>
+    <div class='task_content'>
+        <p class='task_expired'>
+          <%= @task.expired_on %>まで
+        </p>
+        <div class='task_title'>
+          <p>＼<%= @task.title %>／</p>
+        </div>
+      <div class='task_description'>
+        <%= @task.description %></p>
+      </div>
+      <div class='create_user'>
+        <%= @task.user.name %>
+        <%= image_tag @task.user.icon.url, class: "task_icon", size: '40x40' %>
+        <%= link_to '編集', edit_pair_task_path(@task.pair, @task), class: "btn btn-outline-secondary btn-sm" %>
+        <%= link_to '削除', pair_task_path(@task.pair, @task), method: :delete,class: "btn btn-outline-secondary btn-sm" %>
+      </div>
+      <%= link_to '戻る', pair_path(@pair), class: "task_back btn btn-outline-secondary btn-sm" %>
     </div>
-  </div>
-  <div class='task_description'>
-    <%= @task.description %></p>
-  </div>
-  <div class='create_user'>
-    <%= @task.user.name %>
-    <%= image_tag @task.user.icon.url, class: "task_icon", size: '40x40' %>
-    <%= link_to '編集', edit_pair_task_path(@task.pair, @task), class: "btn btn-outline-secondary btn-sm" %>
-    <%= link_to '削除', pair_task_path(@task.pair, @task), method: :delete,class: "btn btn-outline-secondary btn-sm" %>
-  </div>
-  <%= link_to '戻る', pair_path(@pair), class: "task_back btn btn-outline-secondary btn-sm" %>
-</div>
 
-  <p class='comment_title'>コメント一覧</p>
-    <div id="comments_area">
-      <%= render partial: 'comments/index', locals: { comments: @comments, task: @task, pair: @pair } %>
-    </div>
-    <%= render partial: 'comments/form', locals: { comment: @comment, task: @task, pair: @pair} %>
+      <p class='comment_title'>コメント一覧</p>
+      <div id="comments_area">
+        <%= render partial: 'comments/index', locals: { comments: @comments, task: @task, pair: @pair } %>
+      </div>
+      <%= render partial: 'comments/form', locals: { comment: @comment, task: @task, pair: @pair} %>
 
+  </div>
 </div>
