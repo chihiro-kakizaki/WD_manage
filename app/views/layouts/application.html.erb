@@ -23,40 +23,40 @@
             <% if user_signed_in? %>
               <% if current_user.try(:admin?) %>
                 <li class="nav-item">
-                  <%= link_to '管理者画面', rails_admin_path, class:"nav-link" %>
+                  <%= link_to t('views.nav.admin_page'),rails_admin_path, class:"nav-link" %>
                 </li>
               <% end %>
               <li class="nav-item">
-                <%= link_to 'プロフィール', user_path(current_user), class:"nav-link" %>
+                <%= link_to t('views.nav.profile'), user_path(current_user), class:"nav-link" %>
               </li>
               <li class="nav-item">
-                <%= link_to '投稿', posts_path , class:"nav-link" %>
+                <%= link_to t('views.nav.post_list'), posts_path , class:"nav-link" %>
               </li>
 
               <% if create_pair %>
                 <li class="nav-item">
-                  <%= link_to 'タスク一覧画面', pair_path(@pair), class:"nav-link" %>
+                  <%= link_to t('views.nav.task_list'), pair_path(@pair), class:"nav-link" %>
                 </li>
               <% else %>
                 <li class="nav-item">
-                  <%= link_to 'タスク作成', new_pair_path, class:"nav-link" %>
+                  <%= link_to t('views.nav.create_pair'), new_pair_path, class:"nav-link" %>
                 </li>
               <% end %>
               <li class="nav-item">
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete ,class:"nav-link" %>
+                <%= link_to t('views.nav.logout'), destroy_user_session_path, method: :delete ,class:"nav-link" %>
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to '新規登録', new_user_registration_path, class:"nav-link" %>
+                <%= link_to t('views.nav.sign_up'), new_user_registration_path, class:"nav-link" %>
               </li>
               <li class="nav-item">
-                <%= link_to 'ログイン', new_user_session_path, class:"nav-link" %>
+                <%= link_to t('views.nav.login'), new_user_session_path, class:"nav-link" %>
               </li>
               <li class="nav-item">
-                <%= link_to 'ゲスト管理者ログイン', users_admin_guest_sign_in_path, method: :post, class:"nav-link" %>
+                <%= link_to t('views.nav.guest_admin_login'), users_admin_guest_sign_in_path, method: :post, class:"nav-link" %>
               </li>
               <li class="nav-item">
-                <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class:"nav-link" %>
+                <%= link_to t('views.nav.guest_login'), users_guest_sign_in_path, method: :post, class:"nav-link" %>
               </li>
             <% end %>
           </ul>

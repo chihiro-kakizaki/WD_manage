@@ -39,6 +39,17 @@ ja:
       show: 詳細
       delete: 削除
       back: 戻る
+    nav:
+      admin_page: 管理者ページ
+      profile: プロフィール
+      post_list: 投稿
+      task_list: タスク一覧
+      create_pair: ペア作成
+      logout: ログアウト
+      sign_up: 新規登録
+      login: ログイン
+      guest_admin_login: ゲスト管理者ログイン
+      guest_login: ゲストログイン
 
   date:
     formats:
