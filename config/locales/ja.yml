@@ -6,6 +6,19 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+  views:
+    tasks:
+      create: タスク新規作成
+      edit: タスク編集
+    comments:
+      list: コメント一覧
+    btn:
+      create: 登録
+      update: 更新
+      edit: 編集
+      delete: 削除
+      back: 戻る
+
   date:
     formats:
       default: "%Y/%m/%d %H:%M:%S"

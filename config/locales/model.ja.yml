@@ -12,7 +12,10 @@ ja:
       task:
         title: タイトル
         description: 詳細
+        expired_on: 期日目安
         status: 進行状況
+      comment:
+        content: コメント
   enums:
     post:
       category:
