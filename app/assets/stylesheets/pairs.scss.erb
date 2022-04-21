@@ -2,11 +2,34 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-/*newページ*/
-.new_pair {
-  width: 70%;
-  margin: 40px auto;
-  text-align: center;
+/*pair form(new,edit)*/
+.pair.row {
+  background: url(<%= asset_path('form.png') %>) center no-repeat;
+  background-size: cover;
+  height: 880px;
+  padding-top: 50px;
+}
+
+.pair_explain {
+  margin: 30px auto;
+  width: 150%;
+}
+
+
+.form-control.season {
+  width: 100px;
+}
+
+.form-control.weddingday_on {
+  width: 150px;
+}
+
+.form-control.email {
+  width: 300px;
+}
+
+.pair-btn {
+  margin: 20px 0;
 }
 
 /*editページ*/
@@ -20,6 +43,7 @@
 .tasks_list {
   width: 75%;
   margin: 0 auto;
+  padding-bottom: 60px
 }
 
 .task_icon {

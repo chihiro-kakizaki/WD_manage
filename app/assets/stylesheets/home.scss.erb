@@ -7,22 +7,49 @@
   background: url(<%= asset_path('kadai.png') %>) center no-repeat;
   background-size: cover;
   height: 600px;
-  color: gray;
-  text-align: center;
+
 }
 
-.display-4 {
+.home.container {
   margin-top: 330px;
+  text-align: center;
+  color: gray;
 }
 
 .explain {
   display: block;
-  width: 500px;
-  margin:0 auto;
   text-align: center;
   color:#7f7f7f;
+  padding-bottom: 60px
 }
 
 .WDmanage {
   margin-bottom: 50px;
+}
+
+/*footer*/
+
+.footer.row {
+  background-color:  #f8f9fa;
+  height: 60px;
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
+  width: 100%;
+  text-align: center;
+  line-height: 60px;
+  color: #808080;
+}
+
+.footer p {
+  margin: 0;
+}
+/*container*/
+.container-fluid {
+  color: #808080;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 60px;/*←footerの高さ*/
+  box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+  padding-bottom: 0;
 }

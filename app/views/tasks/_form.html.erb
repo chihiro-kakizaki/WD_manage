@@ -1,30 +1,32 @@
 <%= form_with(model:[@pair, @task], local: true) do |form| %>
+  <div class='form-group'>
     <% if @task.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-      <% @task.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+      <div id="error_explanation">
+        <ul>
+        <% @task.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <div>
+      <%= form.label :タイトル %>
+      <%= form.text_field :title, class:'form-control' %>
     </div>
-  <% end %>
-  
-  <div>
-    <%= form.label :タイトル %>
-    <%= form.text_field :title %>
-  </div>
-  <div>
-    <%= form.label :詳細 %>
-    <%= form.text_field :description %>
-  </div>
-  <div>
-    <%= form.label :期日目安 %>
-    <%= form.date_select :expired_on %>
-  </div>
-  <div>
-    <%= form.label :進行度 %>
-    <%= form.select :status, Task.statuses_i18n.invert %>
-  </div>
+    <div>
+      <%= form.label :詳細 %>
+      <%= form.text_area :description, class:'form-control' %>
+    </div>
+    <div>
+      <%= form.label :期日目安 %>
+      <%= form.date_field :expired_on , class:'form-control expired_on'%>
+    </div>
+    <div>
+      <%= form.label :進行度 %>
+      <%= form.select :status, Task.statuses_i18n.invert,{},  class:'form-control status' %>
+    </div>
 
-  <%= form.submit %>
+    <%= form.submit  class:"task-btn btn btn-outline-secondary btn-md"%>
+  </div>
 <% end %>

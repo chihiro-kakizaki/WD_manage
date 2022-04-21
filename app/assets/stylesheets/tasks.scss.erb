@@ -2,13 +2,50 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.task_show {
+/*task form*/
+.task.row{
+  background: url(<%= asset_path('form.png') %>) center no-repeat;
+  background-size: cover;
+  padding-top: 50px;
+  height: 880px;
+  padding-bottom: 0;
+}
+
+.form-control.expired_on {
+  width: 150px;
+}
+
+.form-control.status {
+  width: 100px;
+}
+
+.task_form_title {
+  text-align: center;
+}
+
+.task-btn {
+  margin: 20px 0;
+}
+
+/*showページ*/
+.task_show.row{
+  padding-top: 50px;
+  height: 100%;
+  padding-bottom: 60px;
+}
+
+.task_content {
   width: 60%;
   margin: 50px auto;
   text-align: center;
   border: solid #AFDFE4;
 }
-.upper {
+
+.task.col-12 {
+  padding: 0;
+  width: 100%;
+}
+.task_dot {
   border-bottom: 2px dotted #AFDFE4;
 }
 
@@ -32,4 +69,3 @@
 .task_back {
   margin: 10px;
 }
-

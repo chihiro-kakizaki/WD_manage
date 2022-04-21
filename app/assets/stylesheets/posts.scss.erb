@@ -11,6 +11,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, 410px);
   gap: 20px;
+  padding-bottom: 60px;
 }
 
 .post_list {
@@ -83,4 +84,18 @@
 .material-icons.delete-btn {
   font-size: 25px;
   color: gray;
+}
+
+/*post form*/
+.post.row {
+  background: url(<%= asset_path('form.png') %>) center no-repeat;
+  background-size: cover;
+  padding-top: 50px;
+  height: 880px;
+  padding-bottom: 0;
+}
+
+
+.post_form_title {
+  text-align: center;
 }

@@ -23,22 +23,22 @@
         <div>  
           <%= image_tag list.image.url %>
         </div>
+        <%= list.user.name %>
         <div>
           <%= list.content %>
         </div>
-        <div class='favorite_name'>
-          <%= list.user.name %>
-        </div>
         <div class='post_last'>
-          <div class='favorite_category'>
-            <p>category:<%= list.category_i18n %></p>
-          </div>
           <div>
-            <p>season:<%= list.user.assign.pair.season_i18n if list.user.assign %></p>
-          </div> 
-          <div class='favorite_date'>
-            <%= l list.created_at, format: :short  %>
+            <span class="category">
+              <%= list.category_i18n %>
+            </span>
+            <% if list.user.assign %>
+              <span class="<%= list.user.assign.pair.season %>">
+                <%= list.user.assign.pair.season_i18n %>
+              </span>
+            <% end %>
           </div>
+          <%= l list.created_at, format: :short %>
         </div>
       </div>
     <% end %>
