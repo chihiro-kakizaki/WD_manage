@@ -23,7 +23,14 @@ ja:
     pairs:
       create: ペアを新規作成
       edit: ペア情報を編集
-      
+    posts:
+      create: 新規投稿
+      edit: 投稿を編集
+    ransack:
+      search: 検索
+      search_content: 投稿内容
+      choose_category: カテゴリー
+      choose_season: 挙式季節
     btn:
       create: 登録
       update: 更新
