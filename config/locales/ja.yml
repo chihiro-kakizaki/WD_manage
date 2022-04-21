@@ -6,6 +6,51 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+  views:
+    users:
+      name: ユーザー
+      edit: ユーザー情報編集
+    tasks:
+      todo: TODOリスト
+      title: タイトル 
+      expired_on: 期日目安
+      status: 進行状況     
+      create: タスク新規作成
+      edit: タスク編集
+      sort_expired: 期日目安順に並び替え
+      sort_status: 進行状況順に並び替え
+    comments:
+      list: コメント一覧
+    pairs:
+      create: ペアを新規作成
+      edit: ペア情報を編集
+    posts:
+      create: 新規投稿
+      edit: 投稿を編集
+    ransack:
+      search: 検索
+      search_content: 投稿内容
+      choose_category: カテゴリー
+      choose_season: 挙式季節
+    btn:
+      create: 登録
+      update: 更新
+      edit: 編集
+      show: 詳細
+      delete: 削除
+      back: 戻る
+    nav:
+      admin_page: 管理者ページ
+      profile: プロフィール
+      post_list: 投稿
+      task_list: タスク一覧
+      create_pair: ペア作成
+      logout: ログアウト
+      sign_up: 新規登録
+      login: ログイン
+      guest_admin_login: ゲスト管理者ログイン
+      guest_login: ゲストログイン
+
   date:
     formats:
       default: "%Y/%m/%d %H:%M:%S"

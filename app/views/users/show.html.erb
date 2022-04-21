@@ -4,7 +4,7 @@
     <%= image_tag @user.icon.url , class: "icon"%>
     <p class="profile_name">Name : <%= @user.name %></p>
     <div>
-      <%= link_to 'プロフィール編集', edit_user_registration_path, class:"btn btn-outline-secondary btn-sm" %>
+      <%= link_to  t('views.users.edit'), edit_user_registration_path, class:"btn btn-outline-secondary btn-sm" %>
     </div>
   </div>
 

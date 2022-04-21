@@ -13,13 +13,13 @@
       <div class='create_user'>
         <%= @task.user.name %>
         <%= image_tag @task.user.icon.url, class: "task_icon", size: '40x40' %>
-        <%= link_to '編集', edit_pair_task_path(@task.pair, @task), class: "btn btn-outline-secondary btn-sm" %>
-        <%= link_to '削除', pair_task_path(@task.pair, @task), method: :delete,class: "btn btn-outline-secondary btn-sm" %>
+        <%= link_to t('views.btn.edit'), edit_pair_task_path(@task.pair, @task), class: "btn btn-outline-secondary btn-sm" %>
+        <%= link_to t('views.btn.delete'), pair_task_path(@task.pair, @task), method: :delete,class: "btn btn-outline-secondary btn-sm" %>
       </div>
-      <%= link_to '戻る', pair_path(@pair), class: "task_back btn btn-outline-secondary btn-sm" %>
+      <%= link_to t('views.btn.back'), pair_path(@pair), class: "task_back btn btn-outline-secondary btn-sm" %>
     </div>
 
-      <p class='comment_title'>コメント一覧</p>
+      <p class='comment_title'><%= t('views.comments.list') %></p>
       <div id="comments_area">
         <%= render partial: 'comments/index', locals: { comments: @comments, task: @task, pair: @pair } %>
       </div>

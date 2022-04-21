@@ -2,20 +2,20 @@
   <div class='pair col-12'>
     <%= form_with(model: @pair, local: true) do |f| %>
       <div class='form-group'>
-        <h3>ペアを編集する</h3>
+        <h3><%= t('views.pairs.edit') %></h3>
         <p class='pair_explain'>
           挙式日や季節に変更がありましたらペアの情報を更新してください。<br>変更された日時に合わせて、TODOリストの期限目安も更新されます。</br>
         </p>
         <div>
-          <%= f.label :挙式日 %>
+          <%= f.label :weddingday_on %>
           <%= f.date_field :weddingday_on, class:'form-control weddingday_on'%>
         </div>
         <div>
-          <%= f.label :挙式季節 %>
+          <%= f.label :season %>
           <%= f.select :season, Pair.seasons_i18n.invert ,{} , class:'form-control season' %>
         </div>
 
-        <%= f.submit '更新', class:"pair-btn btn btn-outline-secondary btn-md" %>
+        <%= f.submit t('views.btn.update'), class:"pair-btn btn btn-outline-secondary btn-md" %>
       </div>
     <% end %>
   </div>

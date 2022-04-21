@@ -11,11 +11,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :コメント %>
+    <%= form.label :content %>
     <%= form.text_area :content %>
   </div>
 
   <div class="actions">
-    <%= form.submit class:"task-btn btn btn-outline-secondary btn-md"%>
+    <%= form.submit t('views.btn.create'),class:"task-btn btn btn-outline-secondary btn-md"%>
   </div>
 <% end %>
