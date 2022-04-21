@@ -19,4 +19,14 @@ FactoryBot.define do
 
     after(:create) {|user| user.confirm}
   end
+
+  factory :user_third, class: User do
+    name { 'ペア未作成ユーザー' }
+    email { 'third@gmail.com' }
+    password { '123456' }
+    password_confirmation {'123456'}
+    admin { 'false' } 
+
+    after(:create) {|user| user.confirm}
+  end
 end

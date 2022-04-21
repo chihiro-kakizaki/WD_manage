@@ -12,10 +12,10 @@
       <% end %>      
   <% end %>
 <% elsif user_signed_in? && current_user == post.user %>
-    <%= link_to edit_post_path(post.id), method: :get do %>
+    <%= link_to edit_post_path(post.id), class:'edit_icon', method: :get do %>
       <i class="material-icons edit-btn">edit</i>
     <% end %>
-    <%= link_to post_path(post.id), method: :delete do %>
+    <%= link_to post_path(post.id) ,class:'delete_icon', method: :delete do %>
       <i class="material-icons delete-btn">delete</i>
     <% end %>
 <% end %>

@@ -11,8 +11,13 @@ FactoryBot.define do
   end
 
   factory :post_third, class:Post do
-    content { '最新の投稿になるはず' }
+    content { 'テスト投稿' }
     category { :flower }
+  end
+
+  factory :post_four, class:Post do
+    content { 'ペア未作成で挙式季節はナシ' }
+    category { :food }
   end
 end
   
