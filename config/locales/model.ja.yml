@@ -6,6 +6,8 @@ ja:
       task: タスク
     attributes:
       post:
+        content: 投稿内容
+        image: 画像
         category: カテゴリー
       pair:
         weddingday_on: 挙式日
