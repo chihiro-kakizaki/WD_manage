@@ -7,15 +7,28 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
   views:
+    users:
+      name: ユーザー
     tasks:
+      todo: TODOリスト
+      title: タイトル 
+      expired_on: 期日目安
+      status: 進行状況     
       create: タスク新規作成
       edit: タスク編集
+      sort_expired: 期日目安順に並び替え
+      sort_status: 進行状況順に並び替え
     comments:
       list: コメント一覧
+    pairs:
+      create: ペアを新規作成
+      edit: ペア情報を編集
+      
     btn:
       create: 登録
       update: 更新
       edit: 編集
+      show: 詳細
       delete: 削除
       back: 戻る
 

@@ -2,23 +2,23 @@
   <div class='pair col-12'>
     <%= form_with(model: @pair, local: true) do |f| %>
       <div class='form-group'>
-        <h3>ペアを作成する</h3>
+        <h3><%= t('views.pairs.create') %></h3>
         <p class='pair_explain'>
           TODOリストを利用するためにはペアの作成が必要となります。<br>以下の情報を入力し、一緒にご利用するパートナーをペアに招待して下さい。<br>既にユーザー登録がお済みの方のみ招待することができます。
         </p>
         <div>
-          <%= f.label :挙式日 %>
+          <%= f.label :weddingday_on %>
           <%= f.date_field :weddingday_on , class:'form-control', class:'form-control weddingday_on' %>
         </div>
         <div>
-          <%= f.label :挙式季節 %>
+          <%= f.label :season %>
           <%= f.select :season, Pair.seasons_i18n.invert ,{} , class:'form-control season'%>
         </div>
         <div>
-          <%= f.label :招待する相手のメールアドレス %></br>
+          <%= f.label :pertner_email %></br>
           <%= text_field_tag :pertner_email, nil, value: @pertner_email , class:'form-control email' %>
         </div>
-        <%= f.submit '新規作成', class:"pair-btn btn btn-outline-secondary btn-md" %>
+        <%= f.submit t('views.pairs.create'), class:"pair-btn btn btn-outline-secondary btn-md" %>
       </div>
     <% end %>
   </div>

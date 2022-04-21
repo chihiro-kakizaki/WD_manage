@@ -16,28 +16,28 @@
             <p class='pair_count'>結婚式まであと<%= @count %>日</p>
           <% end %>
         </div>
-      <%= link_to 'ペア情報の編集', edit_pair_path(@pair.id), class: "btn btn-outline-secondary btn-sm"%>
+      <%= link_to t('views.pairs.edit'), edit_pair_path(@pair.id), class: "btn btn-outline-secondary btn-sm"%>
   </div>
 
-  <h4>TODOリスト</h4>
-    <%= link_to '新規作成', new_pair_task_path(@pair.id), class: "btn btn-outline-secondary" %>
+  <h4><%= t('views.tasks.todo') %></h4>
+    <%= link_to t('views.tasks.create'), new_pair_task_path(@pair.id), class: "btn btn-outline-secondary" %>
 
   <ul class="nav nav-tabs justify-content-end">
     <li class="nav-item">
-      <%= link_to t('tasks.sort_expired'), pair_path(@pair, sort_expired: "true"), class: "nav-link active " %>
+      <%= link_to t('views.tasks.sort_expired'), pair_path(@pair, sort_expired: "true"), class: "nav-link active " %>
     </li>
     <li class="nav-item">
-      <%= link_to t('tasks.sort_status'), pair_path(@pair, sort_status: "true"), class: "nav-link active" %>
+      <%= link_to t('views.tasks.sort_status'), pair_path(@pair, sort_status: "true"), class: "nav-link active" %>
     </li>
   </ul>
 
   <table class='table'>
     <thead>
       <tr>
-        <th>ユーザー名</th>
-        <th>タスク名</th>
-        <th>期限目安</th>
-        <th>進行度</th>
+        <th><%= t('views.users.name') %></th>
+        <th><%= t('views.tasks.title') %></th>
+        <th><%= t('views.tasks.expired_on') %></th>
+        <th><%= t('views.tasks.status') %></th>
         <th></th>
       </tr>
     </thead>
@@ -49,9 +49,9 @@
           <td><%= task.expired_on %></td>
           <td><%= task.status_i18n %></td>
     
-          <td><%= link_to '詳細', pair_task_path(@pair, task), class: "btn btn-outline-secondary btn-sm" %>
-          <%= link_to '編集', edit_pair_task_path(@pair, task), class: "btn btn-outline-secondary btn-sm" %>
-          <%= link_to '削除', pair_task_path(@pair, task), method: :delete,class: "btn btn-outline-secondary btn-sm" %>
+          <td><%= link_to t('views.btn.show'), pair_task_path(@pair, task), class: "btn btn-outline-secondary btn-sm" %>
+          <%= link_to t('views.btn.edit'), edit_pair_task_path(@pair, task), class: "btn btn-outline-secondary btn-sm" %>
+          <%= link_to t('views.btn.delete'), pair_task_path(@pair, task), method: :delete,class: "btn btn-outline-secondary btn-sm" %>
         </tr>
       <% end %>
     </tbody>

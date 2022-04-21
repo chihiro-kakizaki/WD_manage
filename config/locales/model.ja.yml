@@ -8,7 +8,9 @@ ja:
       post:
         category: カテゴリー
       pair:
+        weddingday_on: 挙式日
         season: 挙式季節
+        pertner_email: 招待する相手のメールアドレス
       task:
         title: タイトル
         description: 詳細
@@ -34,6 +36,5 @@ ja:
         start: 着手中
         completion: 完了
   tasks:
-    sort_expired: 期限目安順に並び替え
-    sort_status: 進行度順に並び替え
+
 
