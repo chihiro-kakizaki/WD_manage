@@ -13,10 +13,12 @@
 * ransack
 # 実行手順
 ```
-git clone git@github.com:chihiro-kakizaki/graduation_app.git
+git clone git@github.com:chihiro-kakizaki/WD_manage.git
 cd WD_manage
 bundle install
-rails db:create && rails db:migrate
+rails db:create
+rails db:migrate
+rails db:seed
 rails s
 ```
 
