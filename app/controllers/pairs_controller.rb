@@ -30,10 +30,13 @@ class PairsController < ApplicationController
   end
 
   def update
-    if @pair.update(pair_params)
-       redirect_to pair_path(@pair)
+
+    if pair_params[:weddingday_on].present?
+      @pair.update(pair_params)
+      redirect_to pair_path(@pair)
     else
-      render :new
+      flash.now[:danger] = "挙式日を入力してください"
+      render :edit
     end
   end
 

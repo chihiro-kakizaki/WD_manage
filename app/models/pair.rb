@@ -23,13 +23,14 @@ class Pair < ApplicationRecord
   end
 
   def update_tasks_depend_on_weddingday_on
-    if self.will_save_change_to_weddingday_on?
+    if self.will_save_change_to_weddingday_on?  
       diff = weddingday_on_change[1] - weddingday_on_change[0]
       tasks.each do |task|
         after = task.expired_on + diff
         task.update(expired_on: after)
       end
     end
+  
   end
 
 
