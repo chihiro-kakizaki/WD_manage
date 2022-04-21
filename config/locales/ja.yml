@@ -9,6 +9,7 @@ ja:
   views:
     users:
       name: ユーザー
+      edit: ユーザー情報編集
     tasks:
       todo: TODOリスト
       title: タイトル 
