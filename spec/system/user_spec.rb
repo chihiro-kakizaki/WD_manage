@@ -103,6 +103,7 @@ RSpec.describe User, type: :system do
         fill_in "user_email", with: 'test@gmail.com'
         fill_in "user_current_password", with: 'testpassword'
         click_on "commit"
+        expect(user.reload.name).to eq 'テスト名前変更'
         expect(page).to have_content 'テスト名前変更'
       end
     end
