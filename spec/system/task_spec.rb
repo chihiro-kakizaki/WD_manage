@@ -119,6 +119,18 @@ RSpec.describe 'タスク管理機能', type: :system do
     end
   end
 
+  describe 'コメント機能' do
+    context 'タスク詳細ページでコメントを投稿した場合' do
+      it 'タスク詳細ページに投稿したコメントが表示される' do
+        visit pair_path(pair)
+        all("tbody tr")[1].click_on "詳細"
+        fill_in 'comment_content', with:'コメント登録'
+        click_on 'commit'
+        expect(page).to have_content 'コメント登録'
+      end
+    end
+  end
+
   describe '編集機能' do
     before do
       visit pair_path(pair)
