@@ -11,8 +11,8 @@
             <%= comment.user.name %>
             <%= image_tag comment.user.icon.url, class: "task_icon", size: '40x40' %>
             <% if current_user == comment.user %>
-              <%= link_to t('views.btn.edit'), edit_pair_task_comment_path(task.pair, task, comment), remote: true, class: "btn btn-outline-secondary btn-sm" %>
-              <%= link_to t('views.btn.delete'), pair_task_comment_path(task.pair.id, comment.task_id, comment.id), method: :delete, remote: true , class: "btn btn-outline-secondary btn-sm"%>
+              <%= link_to t('views.btn.edit'), edit_pair_task_comment_path(task.pair, task, comment), remote: true, class: "comment_edit btn btn-outline-secondary btn-sm" %>
+              <%= link_to t('views.btn.delete'), pair_task_comment_path(task.pair.id, comment.task_id, comment.id), method: :delete, remote: true , class: "comment_delete btn btn-outline-secondary btn-sm"%>
             <% end %>
           </div>
         </div>

@@ -3,19 +3,19 @@
 </div>
 <% if user_signed_in? && current_user != post.user %>
   <% if current_user.favorite_find(post.id) %> 
-      <%= link_to destroy_favorite_path(post.id), method: :delete, remote: true do %>
+      <%= link_to destroy_favorite_path(post.id), class:'notfavorite_icon', method: :delete, remote: true do %>
         <i class="material-icons notfavorite-btn">favorite</i>
       <% end %>
   <% else %>      
-      <%= link_to create_favorite_path(post.id), method: :post, remote: true do %>
+      <%= link_to create_favorite_path(post.id), class:'favorite_icon', method: :post, remote: true do %>
         <i class="material-icons favorite-btn">favorite_border</i>
       <% end %>      
   <% end %>
 <% elsif user_signed_in? && current_user == post.user %>
-    <%= link_to edit_post_path(post.id), method: :get do %>
+    <%= link_to edit_post_path(post.id), class:'edit_icon', method: :get do %>
       <i class="material-icons edit-btn">edit</i>
     <% end %>
-    <%= link_to post_path(post.id), method: :delete do %>
+    <%= link_to post_path(post.id) ,class:'delete_icon', method: :delete do %>
       <i class="material-icons delete-btn">delete</i>
     <% end %>
 <% end %>
