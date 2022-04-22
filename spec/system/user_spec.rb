@@ -26,7 +26,7 @@ RSpec.describe User, type: :system do
         fill_in "user_password", with: '123456' 
         fill_in "user_password_confirmation", with: '123456'
         click_on "commit"
-        expect(page). to have_content 'メールアドレス が正しくありません。'
+        expect(page). to have_content 'メールアドレスが正しくありません。'
       end
     end
     context "ログインした状態で新規登録ページにアクセスしようとした場合" do
@@ -43,7 +43,6 @@ RSpec.describe User, type: :system do
     end
   end
 
-  
   describe "ログインログアウト機能" do
     let!(:user){ FactoryBot.create(:user)}
     before do
@@ -80,13 +79,42 @@ RSpec.describe User, type: :system do
     let!(:user){ FactoryBot.create(:user)}
     before do
       sign_in user
+      visit posts_path
     end
     context "プロフィールボタンを押した場合" do
       it "自分のプロフィール詳細画面が表示される" do
-        visit posts_path
         click_on "プロフィール"
         expect(current_path).to eq user_path(user)
         expect(page).to have_content user.name
+      end
+    end
+    context "ユーザー情報ボタンを押した場合" do
+      it "ユーザー編集ページに遷移する" do
+        click_on "プロフィール"
+        click_on "ユーザー情報編集"
+        expect(page).to have_content "ユーザ編集"
+      end
+    end
+    context "ユーザーネームを変更して更新ボタンを押した場合" do
+      it 'ユーザー情報が正しく更新される' do
+        click_on "プロフィール"
+        click_on "ユーザー情報編集"
+        fill_in "user_name", with:'テスト名前変更'
+        fill_in "user_email", with: 'test@gmail.com'
+        fill_in "user_current_password", with: 'testpassword'
+        click_on "commit"
+        expect(page).to have_content 'テスト名前変更'
+      end
+    end
+    context "ユーザーメールアドレスを変更して更新ボタンを押した場合" do
+      it '本人確認のメールが送信される' do
+        click_on "プロフィール"
+        click_on "ユーザー情報編集"
+        fill_in "user_name", with:'テストユーザー'
+        fill_in "user_email", with: 'aaa@gmail.com'
+        fill_in "user_current_password", with: 'testpassword'
+        expect {click_on "commit"}.to change { ActionMailer::Base.deliveries.size }.by(1)
+        expect(page).to have_content 'アカウント情報を変更しました。変更されたメールアドレスの本人確認のため、本人確認用メールより確認処理をおこなってください。'
       end
     end
   end

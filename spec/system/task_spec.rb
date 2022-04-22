@@ -15,7 +15,7 @@ RSpec.describe 'タスク管理機能', type: :system do
     context 'タスクの新規作成ボタンを押した場合' do
       it 'タスク作成ページに遷移する' do
         visit pair_path(pair)
-        click_on "新規作成"
+        click_on "タスク新規作成"
         expect(current_path).to eq new_pair_task_path(pair)
       end
     end
@@ -24,9 +24,7 @@ RSpec.describe 'タスク管理機能', type: :system do
         visit new_pair_task_path(pair)
         fill_in "task_title", with: "打ち合わせ"
         fill_in "task_description", with: "初回の打ち合わせで担当者と挨拶"
-        select '2022', from: "task_expired_on_1i"
-        select '7', from: "task_expired_on_2i"
-        select '10', from: "task_expired_on_3i"
+        fill_in "task_expired_on", with: '002022-07-10'
         select '未着手', from: "task_status"
         click_on "commit"
         expect(current_path).to eq pair_path(pair)
@@ -36,16 +34,12 @@ RSpec.describe 'タスク管理機能', type: :system do
     context 'タスク作成ページでタイトルを入力せず作成ボタンを押した場合' do
       it 'タスク一覧作成したタスクが表示される' do
         visit new_pair_task_path(pair)
-        fill_in "task_title", with: "打ち合わせ"
+        fill_in "task_title", with: ""
         fill_in "task_description", with: "初回の打ち合わせで担当者と挨拶"
-        select '2022', from: "task_expired_on_1i"
-        select '7', from: "task_expired_on_2i"
-        select '10', from: "task_expired_on_3i"
+        fill_in "task_expired_on", with: '002022-07-10'
         select '未着手', from: "task_status"
         click_on "commit"
-        expect(current_path).to eq pair_path(pair)
-        task_list = all('.task_row')
-        expect(task_list.last).to have_content '打ち合わせ'
+        expect(page).to have_content 'タイトルを入力してください'
       end
     end
     context 'タイトルと詳細を入力せずに作成ボタンを押した場合' do
@@ -53,13 +47,22 @@ RSpec.describe 'タスク管理機能', type: :system do
         visit new_pair_task_path(pair)
         fill_in "task_title", with: ""
         fill_in "task_description", with: ""
-        select '2022', from: "task_expired_on_1i"
-        select '7', from: "task_expired_on_2i"
-        select '10', from: "task_expired_on_3i"
+        fill_in "task_expired_on", with: '002022-07-10'
         select '未着手', from: "task_status"
         click_on "commit"
         expect(page).to have_content "タイトルを入力してください"
         expect(page).to have_content "詳細を入力してください"
+      end
+    end
+    context '期日目安を入力せずに作成ボタンを押した場合' do
+      it 'バリデーションエラーが発生しエラーメッセージが表示される' do
+        visit new_pair_task_path(pair)
+        fill_in "task_title", with: "タイトル"
+        fill_in "task_description", with: "詳細"
+        fill_in "task_expired_on", with: ''
+        select '未着手', from: "task_status"
+        click_on "commit"
+        expect(page).to have_content "期日目安を入力してください"
       end
     end
   end
@@ -68,16 +71,16 @@ RSpec.describe 'タスク管理機能', type: :system do
     context 'タスク一覧画面ボタンを押した場合' do
       it 'ペア詳細ページに遷移する' do
         visit posts_path
-        click_on "タスク一覧画面"
+        click_on "タスク一覧"
         expect(current_path).to eq pair_path(pair)
       end
     end
     context 'ペア詳細ページに遷移した場合' do
       it 'ペア詳細情報が表示される' do
         visit pair_path(pair)
-        expect(page).to have_content pair.weddingday_on
+        expect(page).to have_content "TODOリスト"
         expect(page).to have_content user.name
-        expect(page).to have_content user_second.email
+        expect(page).to have_content user_second.name
       end
     end
     context 'ペア詳細ページに遷移した場合' do
@@ -91,7 +94,7 @@ RSpec.describe 'タスク管理機能', type: :system do
     context '期限目安順に並び替えボタンを押した場合' do
       it '期限目安が早いタスクが一番上に表示される', :retry => 3  do 
         visit pair_path(pair)
-        click_on "期限目安順に並び替え"
+        click_on "期日目安順に並び替え"
         task_list = all('.task_row')
         expect(task_list[0]).to have_content "テストタイトル"
       end
@@ -99,7 +102,7 @@ RSpec.describe 'タスク管理機能', type: :system do
     context '進行度順に並び替えボタンを押した場合' do
       it '進行度が遅いタスクが一番上に表示される', :retry => 3 do
         visit pair_path(pair)
-        click_on "進行度順に並び替え"
+        click_on "進行状況順に並び替え"
         task_list = all('.task_row')
         expect(task_list[0]).to have_content "衣装"
       end
