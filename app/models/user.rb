@@ -17,7 +17,6 @@ class User < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
-
   def favorite_find(post_id)
     favorites.where(post_id: post_id).exists?
   end
