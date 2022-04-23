@@ -4,7 +4,11 @@ class Post < ApplicationRecord
   enum category: {
                   dress: 0,
                   food: 1,
-                  flower: 2 
+                  flower: 2,
+                  paper: 3,
+                  picture: 4,
+                  bgm: 5,
+                  directing: 6
                 }
   
   mount_uploader :image, ImageUploader

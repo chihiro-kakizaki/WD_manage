@@ -26,6 +26,10 @@ ja:
         dress: 衣装
         food: 料理・ドリンク
         flower: 装花
+        paper: ペーパーアイテム
+        picture: 写真・映像
+        bgm: BGM
+        directing: 演出
     pair:
       season:
         spring: 春
