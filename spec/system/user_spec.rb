@@ -119,7 +119,27 @@ RSpec.describe User, type: :system do
       end
     end
   end
+
+  describe "ゲストログイン機能" do
+    context 'ゲスト管理者ログインをクリックした場合' do
+      it 'ゲスト管理者としてログインができる' do
+        visit root_path
+        click_on 'ゲスト管理者ログイン'
+        expect(current_path).to eq posts_path
+        expect(page).to have_content 'ゲスト管理ユーザーとしてログインしました'
+      end
+    end
+    context 'ゲストログインをクリックした場合' do
+      it 'ゲストとしてログインができる' do
+        visit root_path
+        click_on 'ゲストログイン'
+        expect(current_path).to eq posts_path
+        expect(page).to have_content 'ゲストユーザーとしてログインしました'
+      end
+    end
+  end
 end
 
+    
 
 

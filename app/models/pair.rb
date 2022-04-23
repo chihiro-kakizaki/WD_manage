@@ -2,7 +2,6 @@ class Pair < ApplicationRecord
   before_create :create_default_tasks
   before_update :update_tasks_depend_on_weddingday_on
  
-
   enum season: {
                 spring:0, 
                 summer:1,
@@ -32,7 +31,6 @@ class Pair < ApplicationRecord
     end
   
   end
-
 
   def default_tasks_params
     [{user: owner, title:"衣装", description:"衣装・アクセサリーやシューズ等の小物の決定",expired_on: weddingday_on<<4, status: 0},

@@ -129,6 +129,17 @@ RSpec.describe 'タスク管理機能', type: :system do
         expect(page).to have_content 'コメント登録'
       end
     end
+    # context 'タスク詳細ページでコメントを投稿した場合' do
+    #   let!(:comment) {FactoryBot.create(:comment, user_id: user.id, task_id: task.id)}
+    #   it 'タスク詳細ページに投稿したコメントが表示される' do
+    #     visit pair_task_path(pair,task)
+    #     find('.comment_edit').click
+    #     sleep 0.3
+    #     fill_in 'comment_content_#{task.id}', with:'コメント登録'
+    #     click_on 'commit'
+    #     expect(page).to have_content 'コメント登録'
+    #   end
+    # end
   end
 
   describe '編集機能' do
