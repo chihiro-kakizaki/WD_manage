@@ -19,7 +19,10 @@
       <i class="material-icons delete-btn">delete</i>
     <% end %>
 <% end %>
-<%= post.user.name %>
+<div class='post_user_icon'>
+  <%= link_to post.user.name, posts_path(q:{user_name_eq: post.user.name}), class:'post_user' %>
+  <%= image_tag post.user.icon.url, class: "post_icon", size: '30x30' %>
+</div>
 <div class="overflow-auto" style="height:100px;">
   <%= post.content %>
 </div>
