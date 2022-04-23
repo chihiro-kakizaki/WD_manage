@@ -14,7 +14,6 @@
           <%= f.label :season %>
           <%= f.select :season, Pair.seasons_i18n.invert ,{} , class:'form-control season' %>
         </div>
-
         <%= f.submit t('views.btn.update'), class:"pair-btn btn btn-outline-secondary btn-md" %>
       </div>
     <% end %>
