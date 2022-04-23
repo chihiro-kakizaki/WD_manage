@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'kkzkchr@gmail.com'
+  default from: 'wd.manage.app@gmail.com'
   layout 'mailer'
 end
