@@ -1,5 +1,5 @@
 <div>
-  <%= image_tag post.image.url if post.image && post.image.url %>
+  <%= image_tag post.image.url, class: 'post_image' if post.image && post.image.url %>
 </div>
 <% if user_signed_in? && current_user != post.user %>
   <% if current_user.favorite_find(post.id) %> 

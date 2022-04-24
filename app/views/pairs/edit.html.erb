@@ -16,8 +16,7 @@
         </div>
         <%= f.submit t('views.btn.update'), class:"pair-btn btn btn-outline-secondary btn-md" %>
         <div>
-        <%= link_to t('views.btn.delete'), pair_path(@pair), method: :delete,  data: { confirm: "ペア情報を削除するとTODOリストも削除されます。本当によろしいですか?"}, class: "btn btn-outline-secondary btn" %>
-        </div>
+        <%= link_to t('views.btn.delete'), pair_path(@pair), method: :delete,  data: { confirm: "ペア情報を削除するとTODOリストも削除されます。本当によろしいですか?"}, class: "pair_delete btn btn-outline-secondary btn" %>
       </div>
     <% end %>
   </div>
