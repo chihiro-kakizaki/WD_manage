@@ -7,19 +7,34 @@
   margin: 0 auto;
   padding: 30px 0;
 }
+
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 410px);
-  gap: 20px;
-  padding-bottom: 60px;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 375px);
+  gap: 10px;
+}
+
+.post_image {
+  display: block;
+  width: 365px;
 }
 
 .post_list {
   border: thick double #AFDFE4;
 }
 
-.post_name {
-  text-align: right;
+.post_user_icon {
+  float: right;
+}
+
+.post_user {
+  text-decoration: none;
+  color:gray;
+}
+
+.post_user:hover {
+  border-bottom:1px solid #1e97cd;
 }
 
 .post_last {
@@ -88,7 +103,7 @@
 
 /*post form*/
 .post.row {
-  background: url(<%= asset_path('form.png') %>) center no-repeat;
+  background: url(asset-path('form.png')) center no-repeat;
   background-size: cover;
   padding-top: 50px;
   height: 880px;

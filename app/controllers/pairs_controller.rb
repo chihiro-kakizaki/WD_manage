@@ -1,6 +1,6 @@
 class PairsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_pair, only: %i[show edit update]
+  before_action :set_pair, only: %i[show edit update destroy]
 
   def new
     @pair = current_user.build_pair
@@ -30,7 +30,6 @@ class PairsController < ApplicationController
   end
 
   def update
-
     if pair_params[:weddingday_on].present?
       @pair.update(pair_params)
       redirect_to pair_path(@pair)
@@ -53,6 +52,10 @@ class PairsController < ApplicationController
     end
   end
 
+  def destroy
+    @pair.destroy
+     redirect_to posts_path, notice: "ペアとTODOリストを削除しました"    
+  end
 
   private
 

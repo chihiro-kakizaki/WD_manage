@@ -4,7 +4,7 @@
 
 /*pair form(new,edit)*/
 .pair.row {
-  background: url(<%= asset_path('form.png') %>) center no-repeat;
+  background: url(asset-path('form.png')) center no-repeat;
   background-size: cover;
   height: 880px;
   padding-top: 50px;
@@ -14,7 +14,6 @@
   margin: 30px auto;
   width: 150%;
 }
-
 
 .form-control.season {
   width: 100px;
@@ -43,7 +42,6 @@
 .tasks_list {
   width: 75%;
   margin: 0 auto;
-  padding-bottom: 60px
 }
 
 .task_icon {

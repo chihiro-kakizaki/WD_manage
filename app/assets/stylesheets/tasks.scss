@@ -4,7 +4,7 @@
 
 /*task form*/
 .task.row{
-  background: url(<%= asset_path('form.png') %>) center no-repeat;
+  background: url(asset-path('form.png')) center no-repeat;
   background-size: cover;
   padding-top: 50px;
   height: 880px;
