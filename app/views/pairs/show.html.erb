@@ -51,7 +51,7 @@
     
           <td><%= link_to t('views.btn.show'), pair_task_path(@pair, task), class: "btn btn-outline-secondary btn-sm" %>
           <%= link_to t('views.btn.edit'), edit_pair_task_path(@pair, task), class: "btn btn-outline-secondary btn-sm" %>
-          <%= link_to t('views.btn.delete'), pair_task_path(@pair, task), method: :delete,class: "btn btn-outline-secondary btn-sm" %>
+          <%= link_to t('views.btn.delete'), pair_task_path(@pair, task), method: :delete, data: { confirm: "本当によろしいですか?"},class: "btn btn-outline-secondary btn-sm" %>
         </tr>
       <% end %>
     </tbody>
