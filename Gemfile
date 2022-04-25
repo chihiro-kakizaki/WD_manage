@@ -23,6 +23,7 @@ gem 'rails_admin'
 gem 'ransack'
 gem 'enum_help'
 gem 'jquery-rails'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

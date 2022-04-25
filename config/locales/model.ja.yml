@@ -38,9 +38,9 @@ ja:
         winter: 冬
     task:
       status:
-        not_started: 未着手
-        start: 着手中
-        completion: 完了
+        not_started: 未
+        start: 進行中
+        completion: 済
   tasks:
 
 
