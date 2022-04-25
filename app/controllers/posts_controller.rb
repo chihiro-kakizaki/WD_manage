@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   def index
     @q.sorts ='created_at desc' 
-    @posts = @q.result(distinct: true)
+    @posts = @q.result(distinct: true).page(params[:page]).per(9)
   end
 
   def new
