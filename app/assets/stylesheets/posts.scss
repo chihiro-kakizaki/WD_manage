@@ -42,10 +42,6 @@
   padding: 0;
 }
 
-.post_search{
-  padding: 30px 0;
-}
-
 .category {
   border: solid thin #808080;
   padding: 5px;
@@ -115,6 +111,14 @@
 }
 
 /*post search*/
+.post_search {
+  padding: 30px 0;
+}
+
+.new_post {
+  margin-left: 40px;
+}
+
 .form-control.content {
   width: 200px;
 }
@@ -127,4 +131,12 @@
 .form-control.choose_season {
   width: 120px;
   margin-right: 10px;
+}
+
+.approval_guide {
+  border: solid white;
+  padding: 50px;
+  background-color: #DFDCD3;
+  border-radius: 20px;
+  text-align: center;
 }

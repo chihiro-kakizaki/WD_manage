@@ -14,12 +14,12 @@ class PairsController < ApplicationController
     if pertner.nil? || pertner == current_user || (pertner && current_user).assign.present? 
       flash.now[:danger] = "メールアドレスが正しくありません"
       render :new
-    elsif @pair.weddingday_on.nil?
-      flash.now[:danger] = "挙式日を入力してください"
+    elsif pertner.approval.present?
+      flash.now[:danger] = "入力されたメールアドレスのユーザーは既に他のペアに招待されています。"
       render :new
     elsif @pair.save
-      @pair.assigns.create(user: pertner)
       @pair.assigns.create(user: current_user)
+      @pair.approvals.create(user: pertner)
       redirect_to pair_path(@pair)
     else
       render :new
@@ -30,11 +30,9 @@ class PairsController < ApplicationController
   end
 
   def update
-    if pair_params[:weddingday_on].present?
-      @pair.update(pair_params)
+    if  @pair.update(pair_params)
       redirect_to pair_path(@pair)
     else
-      flash.now[:danger] = "挙式日を入力してください"
       render :edit
     end
   end

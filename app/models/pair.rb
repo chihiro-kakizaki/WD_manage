@@ -1,6 +1,8 @@
 class Pair < ApplicationRecord
-  before_create :create_default_tasks
-  before_update :update_tasks_depend_on_weddingday_on
+  before_create :create_default_tasks, :add_season
+  before_update :update_tasks_depend_on_weddingday_on, :add_season
+
+  validates :weddingday_on, presence: true
  
   enum season: {
                 spring:0, 
@@ -10,6 +12,7 @@ class Pair < ApplicationRecord
                 }
 
   has_many :assigns, dependent: :destroy
+  has_many :approvals, dependent: :destroy
   has_many :users, through: :assigns
   belongs_to :owner, class_name: 'User', foreign_key: :owner_id
   
@@ -29,7 +32,19 @@ class Pair < ApplicationRecord
         task.update(expired_on: after)
       end
     end
-  
+  end
+
+  def add_season
+    case weddingday_on.month
+    when 3..5
+      self.season = 0
+    when 6..8
+      self.season = 1
+    when 9..11
+      self.season = 2
+    when 1,2,12
+      self.season = 3
+    end
   end
 
   def default_tasks_params

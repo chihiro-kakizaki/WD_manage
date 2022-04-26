@@ -1,14 +1,30 @@
 <div class='post_main'>
-  <% if current_user.present? %>
-    <%= link_to t('views.posts.create'), new_post_path, class:"new btn btn-outline-secondary btn-md" %>
-  <% end %>
-  <div class='post_search'>
+  <div class='container'>
+    <% if current_user.assign && current_user.pair.approval_ids.blank? %>
+      <p class='approval_guide'>
+        <%= link_to 'ペア招待の承認が却下されました。一度ペア情報を削除し、再度新しいペアを作成して下さい。', edit_pair_path(current_user.pair), class: "btn btn-outline-secondary" %>
+      </p>
+    <% end %> 
+    <% if current_user.approval %>
+      <p class='approval_guide'><%= current_user.approval.pair.owner.name %>よりペアの招待が届いています。
+        <br>
+          <%= link_to '申請承認', pair_assigns_path(current_user.approval.pair), method: :post, data: { confirm: "ペアの申請を承認します。よろしいですか？"}, class: "pair_delete btn btn-outline-secondary btn" %>
+          <%= link_to '申請却下', pair_approval_path(current_user.approval.pair, current_user.approval) , method: :delete,  data: { confirm: "ペアの申請を却下します。よろしいですか？"}, class: "pair_delete btn btn-outline-secondary btn" %>
+        </br>
+      </p>
+    <% end %>
+  </div>
+  <div class='container'>
+
     <%= search_form_for @q  do |f| %>
-      <div class='row'>
+      <div class='search_area row'>
         <%= f.search_field :content_cont , placeholder: t('views.ransack.search_content'), class: 'form-control content' %>
         <%= f.select :category_eq, Post.categories_i18n.invert.map{|key, value| [key, Post.categories[value]]},{include_blank:t('views.ransack.choose_category')}, class:'form-control choose_category'  %>
         <%= f.select :user_assign_pair_season_eq, Pair.seasons_i18n.invert.map{|key, value| [key, Pair.seasons[value]]}, {include_blank:t('views.ransack.choose_season')}, class:'form-control choose_season' %>
         <%= f.submit t('views.ransack.search'), class:"search btn btn-outline-secondary btn-md" %>
+        <% if current_user.present? %>
+          <%= link_to t('views.posts.create'), new_post_path, class:"new_post btn btn-secondary btn-md" %>
+        <% end %>
       </div>
     <% end %>
   </div>

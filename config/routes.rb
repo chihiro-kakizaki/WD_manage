@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   delete 'favorite/:id', to: 'favorites#destroy', as: 'destroy_favorite' 
  
   resources :pairs do
+    resources :assigns, only: [:create]
+    resources :approvals, only: [:destroy]
     resources :tasks do
       resources :comments
     end
