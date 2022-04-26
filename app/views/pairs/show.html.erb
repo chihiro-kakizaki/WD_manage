@@ -1,13 +1,25 @@
 <div class='tasks_list'> 
+  <div class='container'>
+    <% if @pair.approval_ids.blank? %>
+      <p class='approval_guide'>
+        <%= link_to 'ペア招待の承認が却下されました。一度ペア情報を削除し、再度新しいペアを作成して下さい。', edit_pair_path(@pair), class: "btn btn-outline-secondary" %>
+      </p>
+    <% end %>
+  </div>
   <div class='pair_infomation'>
-    <% @pair.assigns.each_with_index do |pair, index| %>
-      <% if index == 0 %>
-        <%= image_tag pair.user.icon.url, class: "task_icon", size: '40x40' %>
-        <p class='first_user'><%= pair.user.name %>＆</p>
-      <% else %>
-        <%= pair.user.name %>
-        <%= image_tag pair.user.icon.url, class: "task_icon", size: '40x40' %>
+    <% if @pair.assigns.count == 2 %>
+      <% @pair.assigns.each_with_index do |pair, index| %>
+        <% if index == 0 %>
+          <%= image_tag pair.user.icon.url, class: "task_icon", size: '40x40' %>
+          <p class='first_user'><%= pair.user.name %> ＆ </p>
+        <% else %>
+          <%= pair.user.name %>
+          <%= image_tag pair.user.icon.url, class: "task_icon", size: '40x40' %>
+        <% end %>
       <% end %>
+    <% elsif @pair.approvals %>
+      <%= image_tag @pair.owner.icon.url, class: "task_icon", size: '40x40' %>
+          <%= @pair.owner.name %> ＆ ペア招待の承認待ち</p>
     <% end %>
         <div>
           <% if @count <= 0 %>

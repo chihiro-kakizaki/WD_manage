@@ -12,6 +12,7 @@ class User < ApplicationRecord
 
   has_one :assign, dependent: :destroy
   has_one :pair, foreign_key: :owner_id, dependent: :destroy
+  has_one :approval, dependent: :destroy
 
   has_many :tasks, dependent: :destroy
 

@@ -14,9 +14,12 @@ class PairsController < ApplicationController
     if pertner.nil? || pertner == current_user || (pertner && current_user).assign.present? 
       flash.now[:danger] = "メールアドレスが正しくありません"
       render :new
+    elsif pertner.approval.present?
+      flash.now[:danger] = "入力されたメールアドレスのユーザーは既に他のペアに招待されています。"
+      render :new
     elsif @pair.save
-      @pair.assigns.create(user: pertner)
       @pair.assigns.create(user: current_user)
+      @pair.approvals.create(user: pertner)
       redirect_to pair_path(@pair)
     else
       render :new
