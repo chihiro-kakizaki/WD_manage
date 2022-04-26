@@ -21,7 +21,7 @@
     <% @user.posts.each do |post| %>
       <div class='mypost_list'>
         <div>
-          <%= image_tag post.image.url %>
+          <%= image_tag post.image.url, size: '355x300' %>
         </div>
 
         <%= link_to edit_post_path(post.id), method: :get do %>

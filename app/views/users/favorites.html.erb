@@ -21,7 +21,7 @@
     <% @favorites.each do |list| %> 
       <div class='favorites_list'>
         <div>  
-          <%= image_tag list.image.url %>
+          <%= image_tag list.image.url, size: '355x300' %>
         </div>
         <%= list.user.name %>
         <div>

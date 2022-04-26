@@ -3,6 +3,9 @@ class PairsController < ApplicationController
   before_action :set_pair, only: %i[show edit update destroy]
 
   def new
+    if current_user.approval
+      redirect_to posts_path, notice: "ペアの招待を承認または却下して下さい。"
+    end
     @pair = current_user.build_pair
     @pertner_email = params[:pertnere_mail]
   end
@@ -14,7 +17,8 @@ class PairsController < ApplicationController
     if pertner.nil? || pertner == current_user || (pertner && current_user).assign.present? 
       flash.now[:danger] = "メールアドレスが正しくありません"
       render :new
-    elsif pertner.approval.present?
+    elsif pertner.approval.present? || pertner.assign.present?
+
       flash.now[:danger] = "入力されたメールアドレスのユーザーは既に他のペアに招待されています。"
       render :new
     elsif @pair.save

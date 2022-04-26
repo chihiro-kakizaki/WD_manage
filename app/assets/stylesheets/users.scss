@@ -64,13 +64,12 @@
 
 .mypost_wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 410px);
-  gap: 20px;
-  margin: 30px auto;
+  grid-template-columns: repeat(auto-fill, 375px);
+  gap: 10px;
 }
 
 .mypost_list {
-  border: thick double #AFDFE4;
+  border: 10px solid #B3D0D7;
 }
 
 .post_name {
@@ -85,13 +84,12 @@
 
 .favorites_wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 410px);
-  gap: 20px;
-  margin: 30px auto;
+  grid-template-columns: repeat(auto-fill, 375px);
+  gap: 10px;
 }
 
 .favorites_list {
-  border: thick double #AFDFE4;
+border: 10px solid #B3D0D7;
 }
 
 .favorite_name {

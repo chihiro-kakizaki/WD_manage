@@ -1,6 +1,6 @@
 <div class='tasks_list'> 
   <div class='container'>
-    <% if @pair.approval_ids.blank? %>
+    <% if @pair.approval_ids.blank? && @pair.assigns.size == 1 %>
       <p class='approval_guide'>
         <%= link_to 'ペア招待の承認が却下されました。一度ペア情報を削除し、再度新しいペアを作成して下さい。', edit_pair_path(@pair), class: "btn btn-outline-secondary" %>
       </p>
