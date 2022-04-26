@@ -1,18 +1,18 @@
 <div class='pair row'>
   <div class='pair col-12'>
     <%= form_with(model: @pair, local: true) do |f| %>
-    <% if @pair.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= @pair.errors.count %>件のエラーがあります。</h2>
-        <ul>
-
-        <% @pair.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
       <div class='form-group'>
+        <% if @pair.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= @pair.errors.count %>件のエラーがあります。</h2>
+            <ul>
+
+            <% @pair.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
         <h3><%= t('views.pairs.create') %></h3>
         <p class='pair_explain'>
           TODOリストを利用するためにはペアの作成が必要となります。<br>以下の情報を入力し、一緒にご利用するパートナーをペアに招待して下さい。<br>既にユーザー登録がお済みの方のみ招待することができます。

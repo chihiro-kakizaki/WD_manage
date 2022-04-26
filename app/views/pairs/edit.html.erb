@@ -1,18 +1,18 @@
 <div class='pair row'>
   <div class='pair col-12'>
     <%= form_with(model: @pair, local: true) do |f| %>
-    <% if @pair.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= @pair.errors.count %>件のエラーがあります。</h2>
-        <ul>
-
-        <% @pair.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
       <div class='form-group'>
+        <% if @pair.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= @pair.errors.count %>件のエラーがあります。</h2>
+            <ul>
+
+            <% @pair.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
         <h3><%= t('views.pairs.edit') %></h3>
         <p class='pair_explain'>
           挙式日や季節に変更がありましたらペアの情報を更新してください。<br>変更された日時に合わせて、TODOリストの期限目安も更新されます。</br>
