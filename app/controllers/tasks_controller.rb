@@ -42,6 +42,7 @@ class TasksController < ApplicationController
   end
 
   private
+
   def task_params
     params.require(:task).permit(:title, :description, :expired_on, :status)
   end
@@ -53,5 +54,4 @@ class TasksController < ApplicationController
   def set_pair
     @pair = Pair.find(params[:pair_id])
   end
-
 end

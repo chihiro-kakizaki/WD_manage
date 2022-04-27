@@ -43,8 +43,8 @@ class PostsController < ApplicationController
     redirect_to posts_path, notice: "削除しました！"
   end
 
-
   private
+
   def post_params
     params.require(:post).permit(:content, :image, :image_cache, :category)
   end
@@ -56,5 +56,4 @@ class PostsController < ApplicationController
   def set_q
     @q = Post.ransack(params[:q])
   end
-
 end

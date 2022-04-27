@@ -18,7 +18,6 @@ class PairsController < ApplicationController
       flash.now[:danger] = "メールアドレスが正しくありません"
       render :new
     elsif pertner.approval.present? || pertner.assign.present?
-
       flash.now[:danger] = "入力されたメールアドレスのユーザーは既に他のペアに招待されています。"
       render :new
     elsif @pair.save
@@ -56,7 +55,7 @@ class PairsController < ApplicationController
 
   def destroy
     @pair.destroy
-     redirect_to posts_path, notice: "ペアとTODOリストを削除しました"    
+    redirect_to posts_path, notice: "ペアとTODOリストを削除しました"    
   end
 
   private
