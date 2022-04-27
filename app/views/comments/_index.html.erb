@@ -1,21 +1,19 @@
-<ul>
-  <% comments.each do |comment| %>
-    <% if comment.id.present? %>
-      <div class="comment-content" id ="this_comment_<%= comment.id %>"></div>
-        <div class='comment_flame'>
-          <div>
-            <%= comment.content %>
-          </div>
-          <div class='comment_user'>
-            <%= comment.created_at.strftime('%m/%d') %>
-            <%= comment.user.name %>
-            <%= image_tag comment.user.icon.url, class: "task_icon", size: '40x40' %>
-            <% if current_user == comment.user %>
-              <%= link_to t('views.btn.edit'), edit_pair_task_comment_path(task.pair, task, comment), remote: true, class: "comment_edit btn btn-outline-secondary btn-sm" %>
-              <%= link_to t('views.btn.delete'), pair_task_comment_path(task.pair.id, comment.task_id, comment.id), method: :delete, remote: true , class: "comment_delete btn btn-outline-secondary btn-sm"%>
-            <% end %>
-          </div>
+<% comments.each do |comment| %>
+  <% if comment.id.present? %>
+    <div class="comment-content" id ="this_comment_<%= comment.id %>"></div>
+      <div class='comment_flame'>
+        <div class='comment_content'>
+          <%= comment.content %>
         </div>
-    <% end %>
+        <div class='comment_user'>
+          <%= comment.created_at.strftime('%m/%d') %>
+          <%= comment.user.name %>
+          <%= image_tag comment.user.icon.url, class: "task_icon", size: '40x40' %>
+          <% if current_user == comment.user %>
+            <%= link_to t('views.btn.edit'), edit_pair_task_comment_path(task.pair, task, comment), remote: true, class: "comment_edit btn btn-outline-secondary btn-sm" %>
+            <%= link_to t('views.btn.delete'), pair_task_comment_path(task.pair.id, comment.task_id, comment.id), method: :delete, remote: true , class: "comment_delete btn btn-outline-secondary btn-sm"%>
+          <% end %>
+        </div>
+      </div>
   <% end %>
-</ul>
+<% end %>

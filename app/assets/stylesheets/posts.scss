@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.post_profile_name {
+  padding-top: 10px;
+  overflow: hidden;
+}
+
+.post_profile_btn {
+  margin-bottom: 10px;
+}
+
 .post_main {
   width: 80%;
   margin: 0 auto;
@@ -134,4 +143,30 @@
   background-color: #DFDCD3;
   border-radius: 20px;
   text-align: center;
+}
+
+
+.pagination>li>a {
+  background-color: white;
+  color: #74747d;
+}
+
+.pagination>li>a:focus,
+.pagination>li>a:hover,
+.pagination>li>span:focus,
+.pagination>li>span:hover {
+  color: #74747d;
+  background-color: #eee;
+  border-color: #ddd;
+}
+
+.pagination>.active>a {
+  color: white;
+  background-color: #DFDCD3;
+  border: solid 1px #DFDCD3;
+}
+
+.pagination>.active>a:hover {
+  background-color: #DFDCD3;
+  border: solid 1px #DFDCD3;
 }

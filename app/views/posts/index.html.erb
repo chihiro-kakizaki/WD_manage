@@ -28,13 +28,28 @@
       </div>
     <% end %>
   </div>
-
-  <div class="wrapper">
-    <% @posts.each do |post| %>
-      <div id="post_<%= post.id %>", class='post_list'>
-        <%= render 'post', post: post %>
+  <div class="row">
+    <div class='col-md-2'>
+      <%= image_tag current_user.icon.url %>
+      <p class='post_profile_name'>
+        <%= current_user.name %>
+      </p>
+      <div class='post_profile_btn'>
+        <%= link_to '自分の投稿', user_path(current_user), class: "btn btn-outline-secondary btn-block" %>
       </div>
-    <% end %>
-    <%= paginate @posts %>
+      <div class='post_profile_btn'>
+        <%= link_to 'お気に入りの投稿', favorites_user_path(current_user), class: "btn btn-outline-secondary btn-block" %>
+      </div>
+    </div>
+    <div class='col-md-10'>
+      <div class="wrapper">
+        <% @posts.each do |post| %>
+          <div id="post_<%= post.id %>", class='post_list'>
+            <%= render 'post', post: post %>
+          </div>
+        <% end %>
+        <%= paginate @posts %>
+      </div>
+    </div>
   </div>
 </div>

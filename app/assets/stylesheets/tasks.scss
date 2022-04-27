@@ -41,10 +41,6 @@
   border: solid #B3D0D7;
 }
 
-.task.col-12 {
-  padding: 0;
-  width: 100%;
-}
 .task_dot {
   border-bottom: 2px dotted #B3D0D7;
 }
@@ -60,6 +56,7 @@
 
 .task_description {
   margin: 30px 0;
+  font-size: 20px;
 }
 
 .create_user {
