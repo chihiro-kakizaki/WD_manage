@@ -21,14 +21,18 @@
       <%= image_tag @pair.owner.icon.url, class: "task_icon", size: '40x40' %>
           <%= @pair.owner.name %> ＆ ペア招待の承認待ち</p>
     <% end %>
-        <div>
-          <% if @count <= 0 %>
-            <p class='pair_count'>結婚式まであと0日</p>
-          <% else %>
-            <p class='pair_count'>結婚式まであと<%= @count %>日</p>
-          <% end %>
-        </div>
-      <%= link_to t('views.pairs.edit'), edit_pair_path(@pair.id), class: "btn btn-outline-secondary btn-sm"%>
+    
+    <div class='weddingday_on_pair'>
+      <%= @pair.weddingday_on %><i class="material-icons pair">favorite_border</i>
+    </div>
+    <div>
+      <% if @count <= 0 %>
+        <p class='pair_count'>結婚式まであと0日</p>
+      <% else %>
+        <p class='pair_count'>結婚式まであと<%= @count %>日</p>
+      <% end %>
+    </div>
+    <%= link_to t('views.pairs.edit'), edit_pair_path(@pair.id), class: "btn btn-outline-secondary btn-sm"%>
   </div>
 
   <h4><%= t('views.tasks.todo') %></h4>
