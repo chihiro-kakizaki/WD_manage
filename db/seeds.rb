@@ -14,20 +14,116 @@ User.create!(
   confirmed_at: Time.now
   )
 
-10.times do |i|
 User.create!(
-  name: "テストユーザー#{i + 1}",
-  email: "test#{i + 1}@gmail.com",
-  password: "password",
+  name:  'alice',
+  email: 'alice@gmail.com',
+  password: '111111',
   admin: false,
   confirmed_at: Time.now
   )
-end
 
-10.times do |i|
-  Post.create!(
-    content: "テスト投稿#{i + 1}",
-    category: rand(0..6),
-    user_id: rand(1..11)
+User.create!(
+  name:  'bob',
+  email: 'bob@gmail.com',
+  password: '111111',
+  admin: false,
+  confirmed_at: Time.now
   )
-end
+
+User.create!(
+  name:  'しおり',
+  email: 'shiori@gmail.com',
+  password: '111111',
+  admin: false,
+  confirmed_at: Time.now
+  )
+
+User.create!(
+  name:  'けんじ',
+  email: 'kenji@gmail.com',
+  password: '111111',
+  admin: false,
+  confirmed_at: Time.now
+  )
+
+User.create!(
+  name:  'はるか',
+  email: 'haruka@gmail.com',
+  password: '111111',
+  admin: false,
+  confirmed_at: Time.now
+  )
+
+User.create!(
+  name:  'だいすけ',
+  email: 'daisuke@gmail.com',
+  password: '111111',
+  admin: false,
+  confirmed_at: Time.now
+  )
+
+User.create!(
+  name:  'あかね',
+  email: 'akane@gmail.com',
+  password: '111111',
+  admin: false,
+  confirmed_at: Time.now
+  )
+
+User.create!(
+  name:  'しょうま',
+  email: 'shoma@gmail.com',
+  password: '111111',
+  admin: false,
+  confirmed_at: Time.now
+  )
+
+User.create!(
+  name:  'えり',
+  email: 'eri@gmail.com',
+  password: '111111',
+  admin: false,
+  confirmed_at: Time.now
+  )
+
+User.create!(
+  name:  'れん',
+  email: 'ren@gmail.com',
+  password: '111111',
+  admin: false,
+  confirmed_at: Time.now
+  )
+
+User.create!(
+  name:  'さおり',
+  email: 'saori@gmail.com',
+  password: '111111',
+  admin: false,
+  confirmed_at: Time.now
+  )
+
+User.create!(
+  name:  'ゆうた',
+  email: 'yuta@gmail.com',
+  password: '111111',
+  admin: false,
+  confirmed_at: Time.now
+  )
+
+# 10.times do |i|
+# User.create!(
+#   name: "テストユーザー#{i + 1}",
+#   email: "test#{i + 1}@gmail.com",
+#   password: "password",
+#   admin: false,
+#   confirmed_at: Time.now
+#   )
+# end
+
+# 10.times do |i|
+#   Post.create!(
+#     content: "テスト投稿#{i + 1}",
+#     category: rand(0..6),
+#     user_id: rand(1..11)
+#   )
+# end
