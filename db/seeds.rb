@@ -110,6 +110,37 @@ User.create!(
   confirmed_at: Time.now
   )
 
+User.create!(
+  name:  'あい',
+  email: 'ai@gmail.com',
+  password: '111111',
+  admin: false,
+  confirmed_at: Time.now
+  )
+  
+User.create!(
+  name:  'しんのすけ',
+  email: 'shinnosuke@gmail.com',
+  password: '111111',
+  admin: false,
+  confirmed_at: Time.now
+  )
+
+User.create!(
+  name:  'あすか',
+  email: 'asuka@gmail.com',
+  password: '111111',
+  admin: false,
+  confirmed_at: Time.now
+  )
+
+User.create!(
+  name:  'りょうま',
+  email: 'ryoma@gmail.com',
+  password: '111111',
+  admin: false,
+  confirmed_at: Time.now
+  )
 # 10.times do |i|
 # User.create!(
 #   name: "テストユーザー#{i + 1}",
