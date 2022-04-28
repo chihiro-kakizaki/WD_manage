@@ -1,6 +1,6 @@
 <div class='post_main'>
   <div class='container'>
-    <% if current_user == current_user&.assign&.pair&.owner && current_user.assign.pair.approval_ids.blank? %>
+    <% if current_user == current_user&.assign&.pair&.owner && current_user.assign.pair.approval_ids.blank? && current_user.pair.assigns.size == 1 %>
       <p class='approval_guide'>
         <%= link_to 'ペア招待の承認が却下されました。一度ペア情報を削除し、再度新しいペアを作成して下さい。', edit_pair_path(current_user.pair), class: "btn btn-outline-secondary" %>
       </p>
