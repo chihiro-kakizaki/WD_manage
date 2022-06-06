@@ -20,8 +20,8 @@ CarrierWave.configure do |config|
     when 'production'
       config.fog_directory = 'wedding-management'
       config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/wedding-management'
-    when 'development'
-      config.fog_directory = 'wedding-management'
-      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/wedding-management'
+    # when 'development'
+    #   config.fog_directory = 'wedding-management'
+    #   config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/wedding-management'
   end
 end
