@@ -1,6 +1,7 @@
 <mxfile host="65bd71144e">
     <diagram id="aupL8DsSdt4dzVegNYU6" name="ページ1">
-        <mxGraphModel dx="1641" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1401" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -32,7 +33,7 @@
                     <mxGeometry x="190" y="240" width="220" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="19" value="投稿一覧画面(トップ)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFE6CC;" vertex="1" parent="1">
-                    <mxGeometry x="340" y="340" width="220" height="30" as="geometry"/>
+                    <mxGeometry x="370" y="340" width="240" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="8" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.786;entryY=1.033;entryDx=0;entryDy=0;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="7" target="7">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -79,7 +80,37 @@
                         <mxPoint x="250" y="230" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-            </root>
-        </mxGraphModel>
-    </diagram>
+                <mxCell id="20" value="" style="endArrow=classic;html=1;elbow=vertical;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="10" target="19">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="490" y="210" as="sourcePoint"/>
+                        <mxPoint x="540" y="160" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="22" value="Profileボタンを押す" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="370" width="240" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="タスク一覧ボタンを押す(ペア作成済)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="430" width="240" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="ペア作成ボタンを押す(ペア未作成)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="460" width="240" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="投稿ボタンを押す" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="400" width="240" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="新規投稿ボタンを押す" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="490" width="240" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="検索ワード・プルダウンを選択して&lt;br&gt;検索ボタンを押す" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="520" width="240" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="自分の投稿ボタンを押す" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="560" width="240" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="お気に入りの投稿" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="590" width="240" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="♡ボタン(お気に入り登録ボタン)を押す" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="620" width="240" height="30" as="geometry"/>
+                </mxCell>
 </mxfile>
