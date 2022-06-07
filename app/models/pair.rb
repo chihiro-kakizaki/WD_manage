@@ -15,7 +15,6 @@ class Pair < ApplicationRecord
   has_many :approvals, dependent: :destroy
   has_many :users, through: :assigns
   belongs_to :owner, class_name: 'User', foreign_key: :owner_id
-  
   has_many :tasks, dependent: :destroy
 
   def create_default_tasks
