@@ -20,9 +20,11 @@
   <div class='home_image'>
     <%= image_tag 'home4.png' %>
   </div>
-  <div class='home_btn'>
-    <p class='home_guide'>＼Please from here!／</p>
-    <%= link_to t('views.nav.sign_up'), new_user_registration_path, class: "btn btn-outline-secondary  btn-block" %>
-    <%= link_to t('views.nav.login'), new_user_session_path, class: "btn btn-outline-secondary  btn-block" %>
-  </div>
+  <% unless user_signed_in? %>
+    <div class='home_btn'>
+      <p class='home_guide'>＼Please from here!／</p>
+      <%= link_to t('views.nav.sign_up'), new_user_registration_path, class: "btn btn-outline-secondary  btn-block" %>
+      <%= link_to t('views.nav.login'), new_user_session_path, class: "btn btn-outline-secondary  btn-block" %>
+    </div>
+  <% end %>
 </div>
